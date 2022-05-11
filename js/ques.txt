@@ -1,0 +1,122 @@
+Q.1 Difference between “ == “ and “ === “ operators.
+Ans: These are the comparison operators. They always return boolean values like true or false.
+== it compares only the value.
+=== it compares both the value as well as type of data.
+If you want to find the data type of value we use typeof operator.
+
+Q.2 What is the spread operator?
+Ans: Spread Operator in javascript take in the iterable and expands it into individual values.(destructuring).
+It's syntax is ...
+It can be used to clone, expand and concat arrays and objects.
+
+Q.3 What are the differences between var, let and const?
+Ans: These are three different ways of creating or declaring the variables in JS.
+Out of thses threee var used to be a part of ES5 or EcmaScript2014 and let and const are part of latest release of JS version i.e. ES6.
+var is a global scope variableslet and const are local scope variable.
+At the time of memory allocation they will get  their memory  also at different location means var will be in global and let and const will be in script scope according to browser resulting  n that if you will try to access var keyword vairbale before intialization you will get undefined.
+But if you will try to access variable created with let or const it will give Reference error: Variable is not defined.
+
+Q.4 What is execution context
+Ans: It is an concept in javascript that holds information about the environment where the current js code is being exceuted.
+In js we can have 2 types of execution context:
+1) Global (GEC) => When the js file first loads on the browser this context is created and pushed into the call stack. Code which is not in any function or object is excuted inside.
+2) Functional (FEC) =>  When Js Engine finds a function call it creates a new execution context refering that function which is also pushed in call stack. FEC can have access to all code of GEC but not vice versa.
+
+Q.5 What is meant by first class functions?
+Ans: When functions are treated like any other variable in js they are called as first class functions.
+This function can be passed as an argument to other function also they can be returned by other functions.
+const greeting = function () {
+    console.log("Hello World")
+}
+greeting();
+
+Q.6 What are closures?
+Ans: Closure in js is a function bundled together with reference to its lexical environment.
+Closure gives you access to an outer function's scope from the inner function.
+Closures are created everytime a function is created at fucntion creation time.
+
+function outer() {
+    var num = 5;
+    fucntion inner() {
+        console.log(num)
+    }
+    return inner;
+}
+outer()();
+
+Q.7 Explain call(), apply() and, bind() methods.
+Ans: These are the methods in js serving the same purpose with some differences. The purpose they serve is take in object and sets the this keyword in a function to the specified object.
+this refers to the object from where the function is invoked from.
+bind() => it creates and returns a new function
+call() and apply() => it set this keyword and immediately executes the function doesnt return anything.
+only difference between call() and apply() is call accepts comma seperated arguments and apply accepts array of arguments
+const john = {
+    name: 'John',
+    age: 22
+}
+const jane = {
+    name: 'Jane',
+    age: 26
+}
+function greeting () {
+    consoel.log(`Hi my name is ${this.name} and I am ${this.age} years old.`)
+}
+
+Q.8 Explain prototypes.
+Ans: Prototypes are objects in javascript from which other objects can inherit properties.
+__proto__ can be be used to define a prototype object.
+These inherited properties are hidden by default but can be accessed by the object which inherits the prototype.
+let animal = {
+    eats: true,
+    moves: true
+}
+let rabbit = {
+    jumps: true,
+    __proto__: animal
+}
+rabiit inherits from animal.
+
+Q.9 What are promises and why do we need them?
+Ans: Promise is an object in javascript that represents eventual completion or failure of an asynchronous operation and its resulting value.
+Promise can be created using Promise constructor. which takes in a callback function and which has 2 parameters resolve and reject.
+let promise1 = new Promise((resolve, reject) => {
+    const x = 5;
+    const y = 5;
+    if (x === y ) {
+        resolve("Both are equal")
+    } else {
+        reject("Not equal")
+    }
+    resolve('Promise has been fulfilled')
+    reject('Promise has been rejected')
+})
+Promise can be in one of the 3 state at an instance of time:
+1) pending: initial state, promise neither been resolved nor rejected
+2) fulfilled: it means operation has been completed successfully (resolved)
+3) rejected: it means operation has been failed to complete.
+There are also promise consumers:
+then() =>  it is invoked when promise gets fulfilled. It takes in a callback function and the parameter of the callback function will be equal to the resolve value.
+.catch() => it is invoked when promise gets rejected. It takes in a callback function and the parameter of the callback function will be equal to the reject value.
+promise1
+    .then(result =>  console.log(result))
+    .catch(result =>  console.log(result))
+
+Q.10 What is the purpose of async/await keywords?
+Ans: async and await are predefined keywords in javascript.
+They make promises easier to write.
+async => it is used before fucntion and it makes the function return a promise.
+await => it is used inside the function and it makes the function wait for the promise.
+
+let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log("second");
+        resolve();
+    }, 1000)
+})
+
+async function print() {
+    console.log('first')
+    await promise;
+    console.log('third')
+}
+print();

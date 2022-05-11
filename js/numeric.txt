@@ -1,0 +1,36 @@
+1) A train running at the speed of 60 km/hr crosses a pole in 9 seconds. What is the length of the train?
+Ans: distance travelled by train in this 9 seconds will be equal to length of the train.
+and we know, Distance = speed x time
+so, Length of train = (60 x 5/18) x 9 metres = 150 metres.
+
+2) The length of the bridge, which a train 130 metres long and travelling at 45 km/hr can cross in 30 seconds, is:
+Ans:  converting speed in m/s = (45 x 5/18) = 12.5 m/s
+let y be the length of bridge. so total distance travelled in 30 sec will be:
+(130 + y) = 12.5 x 30
+(130 + y) = 375
+y = 245m
+
+3) A sum of money at simple interest amounts to Rs. 815 in 3 years and to Rs. 854 in 4 years. The sum is:
+Ans:  For simple interest in one year it will be difference between the given amounts: 854 - 815 = Rs. 39
+then simple interest for 3 years will be = 39 x 3 = Rs. 117
+so, sum = amount in 3 years - simple interest in 3 years = 815 - 117 = Rs. 698
+
+4) A person crosses a 600 m long street in 5 minutes. What is his speed in km per hour?:
+Ans: speed = distance / time = (600 / 60 x 5) = 2 m/s = 2 x (18 / 5) = 7.2 km/hr
+
+5) In the first 10 overs of a cricket game, the run rate was only 3.2. What should be the run rate in the remaining 40 overs to reach the target of 282 runs?
+Ans: runs scored in first 10 overs = 10 x 3.2 = 32 runs
+runs left to score in 40 overs = 282 - 32 = 250 runs
+required run rate = 250 / 40 = 6.25
+
+6) Which one of the following is not a prime number?
+Ans:
+
+7) What least number must be added to 1056, so that the sum is completely divisible by 23 ?
+Ans: on dividing 1056 by 23 we get 21 as remainder. to make it completely divisible remainder should be completely divisible so to make 21 to be 23 we need 2 i.e. 2 should be added to 1056 to make it 1058 which is completely divisible by 23.
+
+8) Find odd man out.  3, 5, 11, 14, 17, 21.
+Ans:  all are odd numbers except 14 is an even number.
+
+9) Find odd man out.  8, 27, 64, 100, 125, 216, 343.
+Ans: all are cubes of a number except 100 isn't.
