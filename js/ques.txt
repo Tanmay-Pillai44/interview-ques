@@ -70,6 +70,9 @@ const jane = {
 function greeting () {
     consoel.log(`Hi my name is ${this.name} and I am ${this.age} years old.`)
 }
+greeting.call(john) // Hi my name is John and I am 22 years old.
+let newFunc = greeting.bind(jane)
+newFunc(); // Hi my name is Jane and I am 26 years old.
 
 Q.8 Explain prototypes.
 Ans: Prototypes are objects in javascript from which other objects can inherit properties.
