@@ -3,11 +3,17 @@ Ans: These are the comparison operators. They always return boolean values like 
 == it compares only the value.
 === it compares both the value as well as type of data.
 If you want to find the data type of value we use typeof operator.
+let a = 5
+let b = "5"
+a == b will give true
+a === b will give false
 
 Q.2 What is the spread operator?
 Ans: Spread Operator in javascript take in the iterable and expands it into individual values.(destructuring).
 It's syntax is ...
 It can be used to clone, expand and concat arrays and objects.
+let arr = [1, 2, 4]
+let arr2 = [...arr, 5, 6]
 
 Q.3 What are the differences between var, let and const?
 Ans: These are three different ways of creating or declaring the variables in JS.
@@ -29,12 +35,12 @@ Q.5 What is meant by first class functions?
 Ans: When functions are treated like any other variable in js they are called as first class functions.
 This function can be passed as an argument to other function also they can be returned by other functions.
 const greeting = function () {
-    console.log("Hello World")
+    console.log("Hello World");
 }
 greeting();
 
 Q.6 What are closures?
-Ans: Closure in js is a function bundled together with reference to its lexical environment.
+Ans: Closure is a combination bundled together with reference to its lexical environment.
 Closure gives you access to an outer function's scope from the inner function.
 Closures are created everytime a function is created at fucntion creation time.
 
@@ -123,3 +129,87 @@ async function print() {
     console.log('third')
 }
 print();
+
+Q.11 What are function constructors?
+Ans: They are just like regular functions used to create objects.
+They are called with new keyowrd.
+Good practice to capitalize first letter of the constructor function.
+When the function is executed with new keyword 2 things happen:
+1) it creates an empty object and assigns that empty object to this keyword.
+2) Returns this( which is object created by the function)
+fucntion Person(name, age) {
+    this.fname = name,
+    this.myAge = age
+}
+const person1 = new Person("John", "22")
+
+Q.12 What is hoisting?
+Ans: hoisting refers to process where the interpreter APPEARS to move the declarations of functions and varaibales to top of their scope, prior to execution of the code.
+only normal functions are hoisted not arrow or first class or anonymous functions.
+only variable with var is hoisted not let and const.
+console.log(test) // undefined
+var test
+
+Q.13 What is the DOM?
+Ans: Document Object Model (DOM) is a programming interface for HTML Documents.
+It is a way to represent the webpage in a structured hierarchial way so that it will become easier for programmers an users to glide through the document.
+With DOM, we can easily access and manipulate tags, IDs, classes, attributes, or elements using methods like getElementById etc.
+When the Html file loads in the brower javascript cannot understand it directly, so we require DOM which is representtion of same html documnet but in different format with using objects.
+
+Q.14 Difference between undefined vs not defined vs NaN
+Ans: undefined => When we declare a variable and do not assign any value to it, it by default gets the value assigned known as undefined in javascript.
+typeof (undefined) gives us undefined.
+not defined => When we try to access  vairable which is not declred then we encounter Reference Error saying variable is not defined.
+NaN => It is known as Not a Number. It denotes that value of object is not a number.
+e.g. sqrt(-1)
+and any arthimetic operation wih undefined will result in NaN
+
+Q.15 How many operators do we have in JS ?
+Ans: Arthimetic => +, -, *, %, ++, -- to perform mathematical operations
+Comparison => ==, ===, !=, !==, >, <, <=, >=
+Logical => &&(and), || (or), !(not)
+Bitwise => & (and), | (or), ~(not), ^(xor), <<(left shift), >>(right shift)
+Ternary => variableName = (condition) ? value1 : value2
+
+Q.16 What are pure functions?
+Ans: It is a function that always returns the same output for the same arguments passed in it.
+That means function's return statement does not depend on the values outside the function.
+function add(a, b) {
+    return a + b;
+}
+
+Q.17 What is an event loop and call stack?
+Ans: Call Stack => It is where the execution context in javascript are maintained and are being tracked so that we know which current context of code is running. Js has only one call stack at a time because it is single threaded language.
+It follows Last In First Out principle (LIFO)
+Event Loop => Whenever a asynchronous operation or function is being executed it doesnt directly go into the callstack there is queue caalled as callbakc queue which is where it goes. this queue follows principle of FIFO(first in first out). And event loop frequently checks whether the call stack is empty or not, Whenever it founds it is empty is pushes the first call of callback queue to call stack.
+
+Q.18 What is prototype chain?
+Ans: Prototypes are objects from which other objects can inherit properties.
+The Prototype of an object could also have prototype object and this continues until we reach the level where no prototype object is found. This is called prototype chaining.
+e.g.// pocket -> bed -> table -> head
+        let head = {
+            glasses: 1
+        }
+        let table = {
+            pen: 3,
+            __proto__: head
+        }
+        let bed = {
+            sheet: 1,
+            pillow: 2,
+            __proto__: table
+        }
+        let pocket = {
+            money: 2000,
+            __proto__: bed
+        }
+
+Q.19 What is the use of setTimeout?
+Ans: It is an asynchronous function, it will not pause execution of other functions in call stack (As in js code is exceuted line by line and next line to execute previous one should be finished).
+It take a callback function to execute and time in ms as arguments and it exceutes that callback function after specified time.
+It can be used in alarms or reminders, delay some kind of executions.
+console.log("i am first")
+setTimeout(() => {
+    "I am Last"
+}, 3000);
+console.log("I am Second");
