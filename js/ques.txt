@@ -24,7 +24,7 @@ But if you will try to access variable created with let or const it will give Re
 
 Q.4 What is execution context
 Ans: It is an concept in javascript that holds information about the environment where the current js code is being exceuted.
-1) Memory allocation Phase => In this phase variables and function definitions gets allocated in the memory. Also variables declared with var keyword gets intialized with undefined.
+1) Memory allocation Phase => In this phase variables and function definitions gets allocated in the memory. Also variables declared gets intialized with undefined.
 2) Code Execution Phase => Here, variables gets the value assigned to them and for every function call a new execution context i.e. FEC is created with same 2 phases.
 In js we can have 2 types of execution context:
 1) Global (GEC) => When the js file first loads on the browser this context is created and pushed into the call stack. Code which is not in any function or object is excuted inside.
@@ -147,9 +147,10 @@ fucntion Person(name, age) {
 const person1 = new Person("John", "22")
 
 Q.12 What is hoisting?
-Ans: hoisting refers to process where the interpreter APPEARS to move the declarations of functions and varaibales to top of their scope, prior to execution of the code.
-only normal functions are hoisted not arrow or first class or anonymous functions.
-only variable with var is hoisted not let and const.
+Ans: hoisting refers to process where the it APPEARS to move the function declarations and variables to top of their scope, prior to execution of the code.
+Only normal functions are hoisted not arrow or first class or anonymous functions.
+If we try to access var variable before intialization it gets hoisted and shows undefined.
+But in case of let and const it shows reference error because we are accessing them in Temperal dead zone, which is context of code where variable is present in scope but are not accessible. so it is good practice to always define variables at top of their scope.
 console.log(test) // undefined
 var test
 
@@ -184,7 +185,7 @@ function add(a, b) {
 Q.17 What is an event loop and call stack?
 Ans: Call Stack => It is where the execution context in javascript are maintained and are being tracked so that we know which current context of code is running. Js has only one call stack at a time because it is single threaded language.
 It follows Last In First Out principle (LIFO)
-Event Loop => Whenever a asynchronous operation or function is being executed it doesnt directly go into the callstack there is queue caalled as callbakc queue which is where it goes. this queue follows principle of FIFO(first in first out). And event loop frequently checks whether the call stack is empty or not, Whenever it founds it is empty is pushes the first call of callback queue to call stack.
+Event Loop => Whenever a asynchronous operation or function is being     it doesnt directly go into the callstack there is queue caalled as callbakc queue which is where it goes. this queue follows principle of FIFO(first in first out). And event loop frequently checks whether the call stack is empty or not, Whenever it founds it is empty is pushes the first call of callback queue to call stack.
 
 Q.18 What is prototype chain?
 Ans: Prototypes are objects from which other objects can inherit properties.
@@ -216,3 +217,177 @@ setTimeout(() => {
     "I am Last"
 }, 3000);
 console.log("I am Second");
+
+Q.20 What is callback hell?
+Ans: It is an issue caused by coding with complex nested callbacks.
+Each and every callback takes an argument that is result of previous callbacks.
+The code structure looks like a pyramid, making it difficult to read and maintain.
+If there is an error in one function, all other functions get affected.
+E.g. function printLetter(letter, cb) {
+    setTimeout(() => {
+        console.log(letter);
+        cb();
+    }, 1000)
+}
+
+function print() {
+    printLetter("A", () => {
+        printLetter("B", () => {
+            printLetter("C", () => {
+                printLetter("D", () => {
+                    console.log("Done")
+                })
+            })
+        })
+    })
+}
+
+Q.21 What is promise chaining?
+Ans: Promise chaining is useful when we need to execute two or more asynchronous operations back to back where each subsequent operation starts when the previous operation succeeds with result from previous step.
+It is concept by which we may intialize another promise inside our .then()  method and accordingly we may execute our results.
+E.g.
+function callPromise(letter) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(letter)
+            resolve()
+        }, 1000)
+    })
+}
+
+callPromise("A")
+    .then(() => callPromise("B"))
+    .then(() => callPromise("C"))
+    .then(() => callPromise("D"))
+
+Q.22 What is creation phase and execution phase?
+Ans: There is execution context in js which holds information about the environment where the current js code is being exceuted.
+Every execution context has two phases:
+1) Memory creation Phase => In this phase variables and function definitions gets allocated in the memory. Also variables declared gets intialized with undefined.
+2) Code Execution Phase => Here, variables gets the value assigned to them and for every function call a new execution context i.e. FEC is created with same 2 phases.
+
+Q.23 What is a Temporal Dead Zone?
+Ans: It is the term to describe the state where the vairables are unreachable. They are in scope, but they aren't declared.
+For let and const vairables exist in TDZ from start of their scope until they are declared.
+let and const are in the different scope (script scope) and not in global scope so TDZ exists for them and not for var.
+To avoid this issue it is suggested that always declare vairable at top of their scope.
+
+Q.24 What is the for-in loop in JavaScript? Give its syntax
+Ans: It is loop in js which iterates over the properties of an object or index of an array.
+for (let x in object) {
+    // code to be executed
+}
+
+Q.25 What are arrow functions?
+Ans: It is newer syntax to write function in javascript introduced in ES6.
+It's syntax is let myFunction = (a, b) => a * b;
+It gets shorter! If the function has only one statement, and the statement returns a value, you can remove the brackets and the return keyword.
+It is easier to use as callback function in another function as syntax is shorter.
+
+Q.26 What are objects in javascript?
+Ans: It is an unordered collection of related data, of primitive oe reference types, in the form of "key:value" pairs.
+Objects are mutable and addressed by reference in javascript.
+We use obejcts to structure our codebase as it allows to bunle data and its functionality on that data together in an object.
+We can create objects using object literal, constructor function, using Object constructor.
+e.g.
+let obj = {
+    name: "Tanmay"
+    print: function () {
+        console.log(obj.name);
+    }
+}
+
+Q.27 What are callbacks?
+Ans: A callback is a function passed as an argument to another function.
+This technique allows a function to call another function.
+A callback function can run after another function has finished.
+e.g. map, filter, reduce.
+function hOFunc (cb) {
+    cb('Hello World')
+}
+
+hOFunc((msg) => {
+    console.log(msg)
+})
+
+Q.28 Explain Local Scope, Block Scope, Functional Scope and Scope Chain in javascript.
+Ans: Scope refers to current context of code which determines the accessibility of variables to JS.
+=> Any variables declared inside two curly braces or inside functions are present locally i.e. they are local scoped.
+function myFunc() {
+  let name = "Tanmay";
+}
+=> Variables declared with let and const keyword inside the curly braces are said to be block scoped. var keyword variables cannot be block scoped.
+{
+  let x = 2;
+}
+=> Variables declared inside function are function scoped. They are accessible anywhere inside the function.
+function myFunc() {
+  var name = "Tanmay";   // Function Scope
+}
+=> Whenever ur code tries to access a variable during the function call, it starts searching from local vairables, and if the variable is not found, it will continue searching in ts outer scope or parent function's scope until it reaches global scope and completes searching for the variable there.
+const name ="Tanmay"
+function outerFunc() {
+    const age = 23;
+    function innerFunc() {
+        const city = 'Pune';
+        console.log(`My name is ${name}, I am ${age} years old and I live in ${city}`)
+    }
+    innerFunc();
+}
+outerFunc();
+
+Q.29 What is difference between null and undefined and where to use what?
+Ans: Null => It is reserved keyword in JS that can be assigned to variable which represents no value.
+typeof (null) is an object.
+undefined => When we declare a variable and do not assign any value to it, it by default gets the value assigned known as undefined in javascript.
+typeof (undefined) gives us undefined.
+
+Q.30 What is Symbol?
+Ans: The JavaScript ES6 introduced a new primitive data type called Symbol. Symbols are immutable (cannot be changed) and are unique.
+const value1 = Symbol('hello');
+const value2 = Symbol('hello');
+
+console.log(value1 === value2); // false
+
+typeof value1 is symbol
+
+console.log(value1.description); // hello
+
+Q.31 Explain passed by value and passed by reference.
+Ans: In Pass by value, function is called by directly passing the value of the variable as an argument. So any changes made inside the function does not affect the original value.
+function Passbyvalue(a, b) {
+    let tmp;
+    tmp = b;
+    b = a;
+    a = tmp;
+    console.log(`Inside Pass by value Function -> a = ${a} b = ${b}`);
+}
+
+let a = 1;
+let b = 2;
+console.log(`Before calling Pass by value Function -> a = ${a} b = ${b}`); //a = 1 b = 2
+
+Passbyvalue(a, b); //a = 2 b = 1
+
+console.log(`After calling Pass by value Function -> a =${a} b = ${b}`); //a = 1 b = 2
+
+In Pass by Reference, Function is called by directly passing the reference/address of the variable as an argument. So changing the value inside the function also change the original value. In JavaScript array and Object follows pass by reference property.
+
+function PassbyReference(obj) {
+    let tmp = obj.a;
+    obj.a = obj.b;
+    obj.b = tmp;
+
+    console.log(`Inside Pass By Reference Function -> a = ${obj.a} b = ${obj.b}`);
+}
+
+let obj = {
+    a: 10,
+    b: 20
+}
+
+console.log(`Before calling Pass By Reference Function -> a = ${obj.a} b = ${obj.b}`); //a = 10 b = 20
+
+PassbyReference(obj); // a = 20 b = 10
+
+console.log(`After calling Pass By Reference Function -> a = ${obj.a} b = ${obj.b}`); // a = 20 b = 10
