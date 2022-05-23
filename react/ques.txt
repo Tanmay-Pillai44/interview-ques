@@ -1,0 +1,154 @@
+Q.1 Differentiate between stateful and stateless components.
+Ans:Stateful components has it's on state and is dependent on its properties.
+Stateful component can be class component with state object or functional component using useState() Hook.
+Stateless component does not have any state, it takes props from another component and returns the react element.
+Stateful component is used when we want to take user input, make page interactive or make page content dynamic.
+Stateless component is used when we just want to make a resuable component which need not to be interactive and have static page content.
+
+Q.2 What is React? What are its features?
+Ans: It is a Javascript UI Library developed by Facebook. 18.0 is its major latest stable version. in 2019 react 16.8 version introduced Hooks which made the writing state wihout writing class and made functional components more into the limelight.
+React can be used to develop Single Page Applications.
+Features:
+1) Virtual DOM => makes development faster
+2) JS XML or JSX => syntax used which allows writing html in js.
+3) Undirectional
+4) Component Based Architecture => UI of app is made of several reusable components each having particular logic.
+
+Q.3 What is Single Page Application or SPA? Explain the difference between SPA and MPA.
+Ans: --> SPA consists of just one single web page that interacts with the user dynamically rewriting the current page rather than loading the entire new pages from the server.
+React uses SPA principles.
+--> MPA are apps that reload the entire page and display new one when user interacts with the app.
+--> SPA are faster and execute logic in the web browser itself rather than on server as in MPA.
+--> If business deal with single product then SPA is best, while if variety of services and products we need bifurcate them on different pages using MPA.
+
+Q.4 How to create Reusable components in React?
+Ans: We can create them as functional or class components and props helps us in making them reusable.
+If in app which share same UI logic but differ in size or content can be made reusable.
+Props are the one which makes possible the data from parent component to child component.
+Data can be className, height, width, text content.
+function Author ({ name, imageURL }) {
+    return (
+        <>
+            <h2>{name}</h2>
+            <img src={imageURL} alt={name} />
+        </>
+    )
+}
+
+Q.5 Explain props drilling concept and state uplifting.
+Ans: Props drilling => It is situation when the we want to pass data from higher level component to deeply nested child component we need to pass it as props at every level between them which makes unecessary render of between components.
+It can be avoided using context API.
+
+State Uplifiting => When we have state or data in one component and we need it in one on its sibling component which is not possible directly so we need to uplift that data to common parent component of both that is state uplifting.
+
+Q.6 Differentiate between states and props.
+Ans: Props => Props are known as properties that can be used to pass data from one component to another.
+It cannot be modified, they are read-only and immutable.
+State => State (data object) represents parts of application that can change. Each component can have its state. State is mutuable and it is local to component only.
+state is object which holds the data of a component.
+
+Q.7 What are the different phases of React component’s lifecycle?
+Ans: A React Component can go through 3 phases in it's lifecycle:
+1) Mounting => It is phase of rendering the JSX for the first time or putting it into the DOM.
+constructor(), render(), componentDidMount() are invoked during this phase.
+2) Updating => It is phase whenever state or props of component gets updated.
+shouldComponentUpdate(), render(), componentDidUpdate() gets called during this phase.
+3) Unmounting => It is phase when the component is removed from the DOM.
+componentWillUnmount() is called in this phase.
+
+Q.8 What are the three principles that Redux follows?
+Ans: Redux can be described in 3 fundamental principles:
+1) Single Source of truth => The global state of your application is stored within a single store.
+It makes it easier to debug and inspect an application.
+2) State is read only => The only way to change the state is to dispatch an action object describing what happened. This ensures that views or network callbacks will never write directly to the state.
+3) Changes are made with pure functions => To specify how the state should be changed or updated we write pure functions known as reducers.
+Reducers takes in state and an action and return the newly updated state object.
+
+Q.9 What is React Router?
+Ans: React Router is a standard library for routing in React.
+It enables the navigation among various components, allows changing the browser URL and keeps the UI in sync with the URL.
+The main components of React Router are:
+1) BrowserRouter => It is parent component that is used to store all of the other components.
+2) Routes => Routes are chosen based on best match to render one of the component.
+3) Route => It conditionally renders the component when it's path specified matches the current browser URL. It mainly has two attributes path and element.
+4) Link => Link is used to create links to different routes and implement navigaation in the application.
+
+Q.10 What do you know about controlled and uncontrolled components?
+Ans: 1) In Controlled, the input form element is handled by react itself rather than the DOM.
+In this, mutuable state is kept in state property and will be updated only with setState() method.
+It makes component have better control over the form elements and data.
+2) In Uncontrolled, it is similar to the traditional HTML form inputs. here form data is handled by DOM itself.
+It maintains their own state and will be updated when the input value changes.
+React does not have any control over the input element.
+
+Q.11 Explain Diffing Algorithm.
+Ans: React maintains two Virtual DOM at an instance of time, one is pre-update version of Virtual DOM and other is updated one.
+These two Virtual DOMs are compared to figure out the changes took place in the components.
+This Process of comparing the current Virtual DOM with previous one is known as "Diffing Algorithm".
+
+Q.12 Explain Virtual DOM
+Ans: It is like a lightweight copy of original DOM which is stored in React's Virtual Memory.
+It is itnroduced in react to make the performance of the application better and faster.
+Every time there is a change, it doesn't directly gets updated in Original DOM it gets updated in Virtual DOM.
+Virtual DOM computes the best possible way to minimize operations on the original DOM by sending changes in batches instead of every single change.
+
+Q.13 Explain Recoinciliation
+Ans: When comparing the two Virtual DOMs using Diffing Algorithm, React finds out what exactly has changed then it updates that changes on the orignal DOM.
+These changes to original DOM are sent in batches instead of sending for single change.
+This entire process of transforming changes to original DOM is called Recoinciliation.
+
+Q.14 Why you have opted for React not Angular or Vue
+Ans: React has better learning curve and documentation and community support.
+In Angular we need to learn Typescript in React we use JSX which is same as JavaScript and its extension of syntax.
+In Angular you need to keep in connect with things to work smoothly while in React if focuses on UI rendering and other packages which are needed are installed.
+Also React has Virtual DOM capabilities which makes it robust and lightweight and its flexibility to allow mobile functionality with React Native.
+Also React has Component Based Architecture to make reusable components.
+
+Q.15 Explain difference between Browser Route, Route, Routes
+Ans: 1) BrowserRouter => It is parent component that is used to store all of the other components.
+2) Routes => Routes are chosen based on best match to render one of the component.
+3) Route => It conditionally renders the component when it's path specified matches the current browser URL. It mainly has two attributes path and element.
+
+Q.16 What is the diff between class and functional components?
+Ans: 1) ->  A functional Component is just plain JS function which accepts props as an argument and returns a React Element.
+-> There is no render method used.
+-> They used to be stateless but now hooks can be used to make them stateful.
+-> React lifecycle methods cannot be used.
+
+2) -> A class Component requires ypu to extend from React.Component and render function returning React element.
+-> Must have render() method returning JSX.
+-> No hooks can be used class components has their own state object.
+-> React lifecycle methods can be used.
+
+
+Q.17 Difference between useState, useContext and useReducer. Explain which hook should be used at what place.
+Ans: 1) useState Hook: -> It allows us to track the state in the functional component.
+-> to use this hook we need to import it from react.
+-> It accepts an initial state and returns array having two values:
+    i) the current state
+    ii) a function that updates the state.
+
+2) useContext Hook: -> It is a way to manage state globally in react app. It works as an consumer for the context API.
+-> It can be used together with the useState Hook to share between deeply nested components more easily.
+-> It avoids the common problem in react known as Prop drilling.
+
+3) useReducer Hook: -> It is similar to useState Hook. It is used when you have complex state logic, useReducer may be useful.
+-> It accepts two arguments
+    i) reducer function
+    ii) initialState
+-> The reducer function contains your custom state logic and the initialState can be simple value but generally will contain an object.
+-> This Hook returns the current state and a disptach method (which dispatches action object)
+-> The reducer is pure function that accepts 2 parameters:
+    i) current state
+    ii) action object
+    and it returns us the new state.
+
+
+Q.18 Explain limitations of Context API over Redux.
+Ans: 1) For mid to large scale application context API becomes difficult to maintain and debug as compared to Redux.
+2) Adding new context requires creation from scratch while in redux it is extendible due to ease of adding new data/actions after initial setup.
+3) Debugging can be hard in highly nested React Component structure even with Dev Tool while Redux Dev Tools are powerful to ease debugging.
+4) UI logic and state management logic are in same component in Context API while in Redux better code organization with both seperated.
+5) Context api is only for state variables while redux is for functions.
+
+
