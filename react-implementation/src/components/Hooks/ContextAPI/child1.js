@@ -1,11 +1,13 @@
-import React from 'react';
-import Child2 from './child2';
+import React, { useContext } from 'react';
+import { UserContext } from './UserContext';
 
 const Child1 = () => {
+
+    const user = useContext(UserContext);
+
     return (
         <>
-            <h2>I am Child 1</h2>
-            <Child2 />
+            <h2>I am Child 1: {user}</h2>
         </>
     )
 }

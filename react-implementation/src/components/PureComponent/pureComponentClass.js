@@ -1,6 +1,6 @@
 import React from "react";
 
-class PureComponentClass extends React.PureComponent {
+class PureComponentClass extends React.Component {
 
     render() {
         console.log("Pure Class Component")

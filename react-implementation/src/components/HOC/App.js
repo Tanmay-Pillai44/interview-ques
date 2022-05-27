@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import IncrementCounterHoc from './components/HOC/IncrementCounterHoc';
+import IncrementCounterHocClass from '.components/HOC/IncrementCounterHocClass';
 
 
 function App(props) {

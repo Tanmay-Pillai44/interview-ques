@@ -1,0 +1,179 @@
+Q.1 What is npm?
+Ans: Node Package Manager(NPM) is the world's largest software registry which have become center of Javascript code sharing,
+     with more than one million packages.
+It is is the default package manager for JavaScript's runtime Node.js.
+Developers from different places use npm to share and borrow packages.
+
+Q.2 What is package?
+Ans: The term "package" is used to describe code that's been made publicly available. A package can contain a single file or many files of code.
+
+Q.3 What is Node.js?
+Ans:1) Node.js is an open source server environment. Node JS was created by Ryan Dahl
+2) It runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.)
+3) It uses JavaScript on the server.
+4) It uses asynchronous programming.
+5) It eliminates the waiting, and simply continues with the next request.
+6) It runs single-threaded, non-blocking, asynchronous programming, which is very memory efficient.
+
+NOTE: Server environment => so before node Javascript was only able to run on our OS using browsers but node provides us to use JS on server or on our OS directly.
+
+Q.4 Whether Node.js is single threaded or multi threaded?
+Ans: Node is single threaded but it behaves as multithreaded as well depending on the process.
+     Node has library called as libuv built with c++ which is multithreaded.
+
+Q.5 What Can Node.js Do?
+Ans:1) Node.js can generate dynamic page content.
+2) It can create, open, read, write, delete, and close files on the server.
+3) It can collect form data.
+4) It can add, delete, modify data in your database
+
+Q.6 What is Server?
+Ans: A server is a computer program or device that provides a service to another computer program and its user, also known as the client.
+
+Q.7 What is port?
+Ans: A port number is the logical address of each application or process that uses a network or the Internet to communicate.
+     A port number uniquely identifies a network-based application on a computer. 65,535 port numbers
+
+Q.8 What is differennce between package.json and package.lock.json?
+Ans: 1) package.json => It contains basic information about the project.It is mandatory for every project.
+                        It contains information such as name, description, author, script, and dependencies.
+     2) package.lock.json => It allows future devs to install the same dependencies in the project.
+                             It contains the name, dependencies, and locked version of the project.
+
+Q.9 What is Express?
+Ans: Express is web application framework built on top of Node.js that helps us in managing servers and routes.
+     Express was created to make APIs and web applications with ease.
+     It saves a lot of coding time almost by half and still makes web and mobile applications are efficient.
+    FEATURES:
+        1) Fast Server-Side Development
+            => Express.js provides many commonly used features of Node.js in the form of functions that can be readily
+               used anywhere in the program.
+            => This removes the need to code for several hours and thus saves time.
+        2) Middleware
+            => Middleware is a part of the program that has access to the database, client request, an the other middlewares.
+        3) Routing
+            => ExpressJS prvoides a highly advanced routing mechanism which helps to preserve the state of webpage with the help of their URLs.
+        4) Templating
+            => ExpressJS provides templating engines that allow the developers to build dynamic content on the web pages
+               by building HTML templates on the server-side.
+        5) Debugging
+            => ExpressJS makes debugging easier by providing a debugging mechanism that has the ability to pinpoint the exact part
+               of the web application which has bugs.
+
+Q.10 What are the modules in Node.js?
+Ans: A set of functions you want to include in your application.
+     We can consider modules to be the same as JavaScript libraries.
+     To include a module, use the require() function with the name of the module.
+     http, path, os these are some of the core node modules.
+     1) http: It helps us with launching a server, also with other tasks like sending requests because a node app
+              could also send a request to another server.
+     2) path: This module helps us with constructing paths to file on a file system that work on any operating system
+              because windows and mac and linux use different path formats.
+     3) OS: This module helps us with operating system, relevant information and so on.
+
+Q.11 What is the purpose of the module .Exports?
+Ans: 1) The main purpose of module.exports is to achieve modular programming.
+        Modular programming refers to separating the functionality of a program into independent, interchangeable modules,
+        such that each contains everything necessary to execute only one aspect of the desired functionality.
+     2) Using module.exports we can separate business logic from other modules.
+     3) By Using it becomes easy to maintain and manage the code base in different modules.
+
+Q.12 Difference between default export and named export.
+Ans:  => Default export is when we want to export single value from the file.
+         During the import, the name of the value can be different from the exported one.
+      => Named export is when we want to export multiple values from the file.
+         During the import, it will be possible to use the same name to refer to the exported value.
+
+Q.13 How do you import any module in Node.js?
+Ans: Node.js uses ES5 syntax of importing i.e. it uses require() function in which we specify relative path of file for local modules
+     while for third-party modules we specify their name.
+     and we store it in a variable for default export while use destructuring for multiple exports.
+
+
+Q.14 What are the different types of HTTP requests?
+Ans: HTTP Request Methods --> GET, POST, PUT, PATCH, DELETE
+    1) GET => The GET method requests a representation of the specified resource which we want to retrieve.
+    2) POST => A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
+    3) DELETE => The DELETE method deletes the specified resource.
+    4) PUT => Replaces all the current representations of the target resource with the uploaded content.
+    5) PATCH => The PATCH method applies partial modifications to a resource.
+
+Q.15 Explain the concept of middleware in Node.js.
+Ans: Middleware functions are functions that have access to the request object (req), the response object (res),
+     and the next middleware function in the application’s request-response cycle.
+     Middleware functions can perform the following tasks:
+        --> Execute any code.
+        --> Make changes to the request and the response objects.
+        --> End the request-response cycle.
+        --> Call the next middleware in the stack.
+     Types of Middleware:
+        --> app level middleware (app.use) in server.js
+        --> routes level middleware(router.use) in routes file
+        --> route level middleware (as argument in  between req ans res)
+        --> Built in middleware (express.static,express.json,express.urlencoded)
+        --> Thirdparty middleware (cors)
+
+Q.16 Explain CORS.
+Ans: --> Cross-Origin Resource Sharing (CORS) is a mechanism which enables to share data or resources
+     between two different origins (different IPs, different PORTS or both).
+     --> As by default http does not allow this so we need to install cors package to communicate
+     between our frontend and backend apps running on different ports or domain.
+
+Q.17 Difference between HTTP and HTTPS
+Ans: HTTP is protocol which is used to communicate between client and servers over the web.
+     HTTPS was introduced so that a secure session is setup first between Server and Client
+     https = http + cryptographic protocols.
+     Differences between HTTP and HTTPS:
+     --> HTTP uses port number 80 for communication and HTTPS uses 443
+     --> HTTP is considered to be unsecure and HTTPS is secure
+     --> In HTTP, Encryption is absent and Encryption is present in HTTPS
+     --> HTTP does not require any certificates and HTTPS needs SSL Certificates
+     SSL CERTIFICATE: An SSL certificate is a digital certificate that authenticates a website's identity
+                      and enables an encrypted connection.
+                      SSL stands for Secure Sockets Layer, a security protocol that creates an encrypted link
+                      between a web server and a web browser.
+
+Q.18 Explain min 5 status codes gets used in Backend development.
+Ans: HTTP response status codes indicate whether a specific HTTP request has been successfully completed.
+     1) 200 OK --> The request succeeded. The result meaning of "success" depends on the HTTP methods.
+     2) 201 Created --> The request succeeded, and a new resource was created as a result.
+                        This is typically the response sent after POST requests.
+     3) 400 Bad Request --> The server cannot or will not process the request due to something that is perceived to be a client error
+                            (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+     4) 401 Unauthorized --> That is, the client must authenticate itself to get the requested response.
+     5) 403 Forbidden --> The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing
+                          to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+     6) 404 Not Found --> The server can not find the requested resource. In the browser, this means the URL is not recognized.
+     7) 405 Method Not Allowed --> The request method is known by the server but is not supported by the target resource.
+     8) 500 Internal Server Error --> The server has encountered a situation it does not know how to handle. (crashed)
+
+Q.19 What are Query Params and URL Params?
+Ans: URL parameters : It is an individual value, means single value will be coming in the url like sending productID.
+                      We can set URL parameter using colon( : ) followed by paramterName.
+                      We can access URL parameter using req.params.parameterName
+     Query Parameters: In this case values comes in key value pair. It comes with syntax like “ ? Key = value “.
+                       It can be passed in cases like sending student name.
+                       We can access Query Parameter using req.query.keyName
+
+Q.20 What is Authorization and Authentication?
+Ans: Authorization : When we are talking about authorization then we check that the user who has logged is having access
+                     for this specific data or not. For example, an Uber driver can not book the cab from the same account
+                     with which he has logged in Uber application as driver.
+     Authentication : When we are talking about authentication then we say that if a person is providing his credential
+                      we will be checking if his credentials are correct or not or if he is already an existing user or not.
+
+Q.21 What is Template Engines?
+Ans:
+
+Q.22 What are JWT Tokens?
+Ans: --> To achieve authentication in the APIs, we use JWT tokens.
+     --> They stand for JSON Web Tokens.
+     --> When any user logs-in by giving its username and password, then we will receive the username and password
+         in the request body of the API.
+     --> Then using username and password we will create one token and assign it to the user.
+     --> Then whenever this user will be calling any API, then this token will be passed from front-end application,
+         then from backend application we will verify this token is valid or not.
+     --> This is how we can achieve authentication in the APIs using JWT tokens.
+
+
+
