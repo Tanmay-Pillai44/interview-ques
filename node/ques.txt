@@ -163,7 +163,12 @@ Ans: Authorization : When we are talking about authorization then we check that 
                       we will be checking if his credentials are correct or not or if he is already an existing user or not.
 
 Q.21 What is Template Engines?
-Ans:
+Ans: --> A template engine enables you to use static template files in your application.
+     --> At runtime, the template engine replaces variables in a template file with actual values, and transforms the template
+         into an HTML file sent to the client. This approach makes it easier to design an HTML page.
+          app.set('views', './views')
+          app.set('view engine', 'ejs')
+          res.render();
 
 Q.22 What are JWT Tokens?
 Ans: --> To achieve authentication in the APIs, we use JWT tokens.
@@ -174,6 +179,16 @@ Ans: --> To achieve authentication in the APIs, we use JWT tokens.
      --> Then whenever this user will be calling any API, then this token will be passed from front-end application,
          then from backend application we will verify this token is valid or not.
      --> This is how we can achieve authentication in the APIs using JWT tokens.
+
+Q.23 What is .env and environment variables?
+Ans: --> Environment variables in Node are used to store sensitive data such as passwords, API credentials,
+         and other information that should not be written directly in code.
+     --> Environment variables must be used to configure any variables or configuration details that may differ
+         between environments.
+     --> A .env file or dotenv file is a simple text configuration file for controlling your Applications
+         environment constants.
+     --> Install the dotenv module to read .env files
+     --> import and configure dotenv: require('dotenv').config()
 
 
 
