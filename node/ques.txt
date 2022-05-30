@@ -8,7 +8,7 @@ Q.2 What is package?
 Ans: The term "package" is used to describe code that's been made publicly available. A package can contain a single file or many files of code.
 
 Q.3 What is Node.js?
-Ans:1) Node.js is an open source server environment. Node JS was created by Ryan Dahl
+Ans:1) Node.js is an open source server environment. Node JS was developed by Ryan Dahl in 2009.
 2) It runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.)
 3) It uses JavaScript on the server.
 4) It uses asynchronous programming.
@@ -25,11 +25,11 @@ Q.5 What Can Node.js Do?
 Ans:1) Node.js can generate dynamic page content.
 2) It can create, open, read, write, delete, and close files on the server.
 3) It can collect form data.
-4) It can add, delete, modify data in your database
+4) It can add, delete, modify data in your database.
 
 Q.6 What is Server?
 Ans: A server is a computer program or device that provides a service to another computer program and its user, also known as the client.
-
+1
 Q.7 What is port?
 Ans: A port number is the logical address of each application or process that uses a network or the Internet to communicate.
      A port number uniquely identifies a network-based application on a computer. 65,535 port numbers
@@ -91,12 +91,13 @@ Ans: Node.js uses ES5 syntax of importing i.e. it uses require() function in whi
 
 
 Q.14 What are the different types of HTTP requests?
-Ans: HTTP Request Methods --> GET, POST, PUT, PATCH, DELETE
-    1) GET => The GET method requests a representation of the specified resource which we want to retrieve.
-    2) POST => A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
-    3) DELETE => The DELETE method deletes the specified resource.
-    4) PUT => Replaces all the current representations of the target resource with the uploaded content.
-    5) PATCH => The PATCH method applies partial modifications to a resource.
+Ans: An HTTP request is an action to be performed on a resource identified by a given Request-URL.
+     HTTP Request Methods --> GET, POST, PUT, PATCH, DELETE
+     1) GET => The GET method requests a representation of the specified resource which we want to retrieve.
+     2) POST => A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
+     3) DELETE => The DELETE method deletes the specified resource.
+     4) PUT => Replaces all the current representations of the target resource with the uploaded content.
+     5) PATCH => The PATCH method applies partial modifications to a resource.
 
 Q.15 Explain the concept of middleware in Node.js.
 Ans: Middleware functions are functions that have access to the request object (req), the response object (res),
