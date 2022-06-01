@@ -1,13 +1,15 @@
 import React, { useReducer } from "react";
 
-const initialState = 0;
+const initialState = {
+    num: 0
+}
 
 const reducer = (state, action) => {
-    switch (action) {
+    switch (action.type) {
         case 'increment':
-            return state + 1;
+            return {...state, num: state.num + action.payload}
         case 'decrement':
-            return state - 1;
+            return {...state, num: state.num - action.payload}
         default:
             return;
     }
@@ -19,9 +21,9 @@ const UseReducerExample = () => {
 
     return (
         <>
-            <h2>Reducer Counter: {count}</h2>
-            <button onClick={() => dispatch('increment')}>Increment</button>
-            <button onClick={() => dispatch('decrement')}>Decrement</button>
+            <h2>Reducer Counter: {count.num}</h2>
+            <button onClick={() => dispatch({type: 'increment', payload: 5})}>Increment</button>
+            <button onClick={() => dispatch({type: 'decrement', payload: 5})}>Decrement</button>
         </>
     )
 }
