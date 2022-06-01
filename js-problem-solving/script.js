@@ -168,3 +168,40 @@ const Rev_Number = (num) => {
     }
     return rev;
 }
+
+
+const ascendArray = (arr) => {
+    for(let i = 0; i < arr.length; i++) {
+        for(let j = i; j < arr.length; j++) {
+            if(arr[i] > arr[j]) {
+                let temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr
+}
+
+const descendArray = (arr) => {
+    for(let i = 0; i < arr.length; i++) {
+        for(let j = i; j < arr.length; j++) {
+            if(arr[i] < arr[j]) {
+                let temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr
+}
+
+const removeDuplicate = (arr) => {
+    let result = [];
+    arr.forEach((ele) => {
+        if(!result.includes(ele)) {
+            result.push(ele)
+        }
+    })
+    return result;
+}
