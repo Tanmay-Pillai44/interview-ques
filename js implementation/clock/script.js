@@ -26,3 +26,13 @@ function timer() {
     setTimeout(timer, 1000)
 }
 timer();
+
+
+
+let dropdown = document.getElementById('dd-1')
+
+function show() {
+    let dropdownText = dropdown.options[dropdown.selectedIndex].text;
+
+    document.getElementById('display').innerText = dropdownText
+}
