@@ -7,7 +7,7 @@ const first_digit = (num) => {
     while (num >= 10) {
         num /= 10;
     }
-    return num;
+    return parseInt(num);
 }
 
 const Triangle_Check = (A,B,C) => {
@@ -52,7 +52,7 @@ const Sum_Digits = (num) => {
 const Print_Pattern = (num) => {
     let s = '';
     for(let i = 0; i <= num; i++) {
-        for(let j = 1; j <= i; i++) {
+        for(let j = 1; j <= i; j++) {
             s += "*";
         }
         s += '\n';
@@ -156,7 +156,7 @@ const Perfect_Check = (num) => {
     }
     else {
         return "NO";
-    }     S
+    }
 };
 
 const Rev_Number = (num) => {
@@ -205,3 +205,30 @@ const removeDuplicate = (arr) => {
     })
     return result;
 }
+
+const hcfLcm = (num1, num2) => {
+    let hcf;
+    for(let i = 1; i<=num1 && i<=num2; i++) {
+        if(num1 % i == 0 && num2 % i == 0) {
+            hcf = i;
+        }
+    }
+    let lcm = (num1 * num2) / hcf;
+    return [hcf, lcm];
+}
+
+const Factorial = (n) => {
+    if (n < 0) {
+        return 'Factorial for negative number';
+    }
+    else if (n == 0) {
+        return 1;
+    } else {
+        let fact = 1;
+        for(let i = 1; i <= n; i++) {
+            fact = fact * i
+        }
+        return fact;
+    }
+}
+
