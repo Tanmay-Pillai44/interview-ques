@@ -24,12 +24,13 @@ But if you will try to access variable created with let or const it will give Re
 
 Q.4 What is execution context
 Ans: It is an concept in javascript that holds information about the environment where the current js code is being exceuted.
+Every Execution Context has two phases:
 1) Memory allocation Phase => In this phase variables and function definitions gets allocated in the memory. Also variables declared gets intialized with undefined.
 2) Code Execution Phase => Here, variables gets the value assigned to them and for every function call a new execution context i.e. FEC is created with same 2 phases.
 In js we can have 2 types of execution context:
 1) Global (GEC) => When the js file first loads on the browser this context is created and pushed into the call stack. Code which is not in any function or object is excuted inside.
 2) Functional (FEC) =>  When Js Engine finds a function call it creates a new execution context refering that function which is also pushed in call stack. FEC can have access to all code of GEC but not vice versa.
-Every Execution Context has two phases:
+
 
 Q.5 What is meant by first class functions?
 Ans: When functions are treated like any other variable in js they are called as first class functions.
@@ -391,3 +392,10 @@ console.log(`Before calling Pass By Reference Function -> a = ${obj.a} b = ${obj
 PassbyReference(obj); // a = 20 b = 10
 
 console.log(`After calling Pass By Reference Function -> a = ${obj.a} b = ${obj.b}`); // a = 20 b = 10
+
+
+
+
+
+
+

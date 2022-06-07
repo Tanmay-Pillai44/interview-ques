@@ -1,0 +1,204 @@
+Q. 1 What is Js?
+=> Js is dynamic programming language which earlier was used only for frontend but after node we have been using it in backend applications too
+Js is synchronous i.e. it exceutes the code line by line.
+Also it is single threaded that means only one operation is done at a time and when error is faced it stops the execution of code at that line.
+We can use js to update and manipulate the web content (in HTML and css).
+
+
+Q.2 What is JS Engine?
+=> SO when browser loads our js file javascript is not understandable by our computer and only by browser so JS Engine
+    executes the js code and converts it into machine understandable language.
+    V8 - chrome
+    spider monkey - mozilla firefox
+    chakra - internet explorer
+    Js engine( v8) internally has interpreter, compiler.
+    Js is dynamic because variable need not to be defined its type like integer, string, array or object.
+
+Q.3 What are the differences between var, let and const?
+Ans: These are three different ways of creating or declaring the variables in JS.
+Out of thses threee var used to be a part of ES5 or EcmaScript2014 and let and const are part of latest release of JS version i.e. ES6.
+var is a global scope variableslet and const are local scope(fucntioncal and block) variable.
+At the time of memory allocation they will get  their memory  also at different location means var will be in global and let and const will be in script scope according to browser resulting  n that if you will try to access var keyword vairbale before intialization you will get undefined.
+But if you will try to access variable created with let or const it will give Reference error: Variable is not defined.
+var: redeclared and reintialize
+let: reintialize
+const: need to be declared and intialize at the same time.
+
+Q.4 What are arrow functions?
+Ans: It is newer syntax to write function in javascript introduced in ES6.
+It's syntax is let myFunction = (a, b) => a * b;
+Using this we can write function like variable in single line.
+It gets shorter, If the function has only one parameter, and the statement returns a value, you can remove the brackets and the return keyword.
+It is easier to use as callback function in another function as syntax is shorter.
+It is useful as using callback functions in like in array methods: map()
+
+
+Q.5 What is execution context
+Ans: It is an concept in javascript that holds information about the environment where the current js code is being exceuted.
+Every Execution Context has two phases:
+1) Memory allocation Phase => In this phase variables and function definitions gets allocated in the memory. Also variables declared gets intialized with undefined.
+2) Code Execution Phase => Here, variables gets the value assigned to them and for every function call a new execution context i.e. FEC is created with same 2 phases.
+In js we can have 2 types of execution context:
+1) Global (GEC) => When the js file first loads on the browser this context is created and pushed into the call stack. Code which is not in any function or object is excuted inside.
+2) Functional (FEC) =>  When Js Engine finds a function call it creates a new execution context refering that function which is also pushed in call stack. FEC can have access to all code of GEC but not vice versa.
+
+Q.6  Hositing and Temperal Dead Zone?
+Ans: hoisting refers to process where the it APPEARS to move the function declarations and variables to top of their scope, prior to execution of the code.
+Only normal functions are hoisted not arrow or first class or anonymous functions.
+If we try to access var variable before intialization it gets hoisted and shows undefined.
+But in case of let and const it shows reference error because we are accessing them in Temperal dead zone, which is context of code where variable is present in scope but are not accessible. so it is good practice to always define variables at top of their scope.
+console.log(test) // undefined
+var test
+It is the term to describe the state where the vairables are unreachable. They are in scope, but they aren't declared.
+For let and const vairables exist in TDZ from start of their scope until they are declared.
+let and const are in the different scope (script scope) and not in global scope so TDZ exists for them and not for var.
+To avoid this issue it is suggested that always declare vairable at top of their scope.
+
+Q.7 What are Closures?
+Ans: Closure is a combination bundled together with reference to its lexical environment.
+Closure gives you access to an outer function's scope from the inner function.
+Closures are created everytime a function is created at fucntion creation time.
+
+function outer() {
+    var num = 5;
+    fucntion inner() {
+        console.log(num)
+    }
+    return inner;
+}
+outer()();
+
+Q.8 Operators : ternary, rest, spread, comparison, logical, increment & decrement
+Ans: * The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (?), then an expression to execute if the condition is true followed by a colon (:), and finally the expression to execute if the condition is false.
+This operator is frequently used as an alternative to an if...else statement.
+    condition ? exprIfTrue : exprIfFalse
+E.g.var age = 26;
+var Eligibility = (age >= 21) ? "Eligible" : "Not Eligible";
+console.log(Eligibility);
+
+* The rest parameter syntax allows a function to accept an indefinite number of arguments as an array, in JavaScript.
+We used when we are not sure how many arguments is to be passed in function.
+e.g function myFun(a,  b, ...manyMoreArgs) {
+  console.log("a", a)
+  console.log("b", b)
+  console.log("manyMoreArgs", manyMoreArgs)
+}
+myFun("one", "two", "three", "four", "five", "six")
+
+* Spread Operator in javascript take in the iterable and expands it into individual values.(destructuring).
+It's syntax is ...
+It can be used to clone, expand and concat arrays and objects.
+let arr = [1, 2, 4]
+let arr2 = [...arr, 5, 6]
+
+* Comparison operators compare two values and give back a boolean value: either true or false.
+ Comparison operators are used in decision making and loops.
+ ==, ===, !=, !==, >, <, >=, <=
+
+* Logical operators perform logical operations: AND, OR and NOT.
+&& => true if both the operands/boolean values are true, else evaluates to false
+|| => true if either of the operands/boolean values is true. evaluates to false if both are false
+! => true if the operand is false and vice-versa.
+
+* The increment operator (++) increments (adds one to) its operand and returns a value.
+    Post increment (x++) =>  increments and returns the value before incrementing.
+    Pre increment (++x) =>  increments and returns the value after incrementing.
+
+* The decrement operator (--) decrements (subtracts one to) its operand and returns a value.
+    Post decrement (x--) =>  decrements and returns the value before decrementing.
+    Pre decrement (--x) =>  decrements and returns the value after decrementing.
+
+
+Q.9 Decision makinig : if-else, if-else ladder , switch
+Ans: Decision making is when wwant to execute particular logic only if the condition gets satifies.
+if-else:
+    if (condition) {
+        // block of code if condition is true
+    } else {
+    // block of code if condition is false
+    }
+
+if...else if...else:
+    if (condition1) {
+        // code block 1
+    } else if (condition2){
+        // code block 2
+    } else {
+        // code block 3
+    }
+
+Switch: The switch statement evaluates an expression, matching the expression's value to a case, and executes statements associated with that case.
+let day = 3;
+let dayName;
+
+switch (day) {
+  case 1:
+    dayName = 'Sunday';
+    break;
+  case 2:
+    dayName = 'Monday';
+    break;
+  case 3:
+    dayName = 'Tuesday';
+    break;
+  case 4:
+    dayName = 'Wednesday';
+    break;
+  case 5:
+    dayName = 'Thursday';
+    break;
+  case 6:
+    dayName = 'Friday';
+    break;
+  case 7:
+    dayName = 'Saturday';
+    break;
+  default:
+    dayName = 'Invalid day';
+}
+
+console.log(dayName); // Tuesday
+
+
+Q.10 Loops : for , while , do-while "
+Ans: Loops are used to repeat a block of code.
+usually used when we want to iterate over array.
+
+
+*   for (initialExpression; condition; updateExpression) {
+        // for loop body
+    }
+
+*   The for...in statements iterates (loops) over the properties of an object.
+    for (let x in object) {
+    code block to be executed
+    }
+
+*   The for...of statements iterates (loops) over the elements of array without using index.
+        for(let ele of array) {
+            code block to be executed
+        }
+
+*  The while statement creates a loop that executes a specified statement as long as the test    condition evaluates to true.
+    The condition is evaluated before executing the statement.
+    let n = 0;
+    while (n < 3) {
+    n++;
+    }
+    console.log(n);
+
+* The do...while statement creates a loop that executes a specified statement until the test condition evaluates to false.
+  The condition is evaluated after executing the statement, resulting in the specified statement executing at least once.
+    let result = '';
+    let i = 0;
+
+    do {
+    i = i + 1;
+    result = result + i;
+    } while (i < 5);
+
+    console.log(result);
+
+
+
+
