@@ -206,6 +206,10 @@ const removeDuplicate = (arr) => {
     return result;
 }
 
+const removeDuplicate2 = (arr) => {
+    return [...new Set(arr)]
+}
+
 const hcfLcm = (num1, num2) => {
     let hcf;
     for(let i = 1; i<=num1 && i<=num2; i++) {

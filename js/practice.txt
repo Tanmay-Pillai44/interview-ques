@@ -3,6 +3,7 @@ Q. 1 What is Js?
 Js is synchronous i.e. it exceutes the code line by line.
 Also it is single threaded that means only one operation is done at a time and when error is faced it stops the execution of code at that line.
 We can use js to update and manipulate the web content (in HTML and css).
+Js is dynamic because variable need not to be defined its type like integer, string, array or object.
 
 
 Q.2 What is JS Engine?
@@ -11,8 +12,8 @@ Q.2 What is JS Engine?
     V8 - chrome
     spider monkey - mozilla firefox
     chakra - internet explorer
-    Js engine( v8) internally has interpreter, compiler.
-    Js is dynamic because variable need not to be defined its type like integer, string, array or object.
+    Js engine( v8) internally has parser, AST, interpreter, Profiler, compiler.
+
 
 Q.3 What are the differences between var, let and const?
 Ans: These are three different ways of creating or declaring the variables in JS.
@@ -57,11 +58,11 @@ To avoid this issue it is suggested that always declare vairable at top of their
 Q.7 What are Closures?
 Ans: Closure is a combination bundled together with reference to its lexical environment.
 Closure gives you access to an outer function's scope from the inner function.
-Closures are created everytime a function is created at fucntion creation time.
+Closures are created everytime a function is created atfunction creation time.
 
 function outer() {
-    var num = 5;
-    fucntion inner() {
+    let num = 5;
+   function inner() {
         console.log(num)
     }
     return inner;
@@ -160,8 +161,320 @@ switch (day) {
 console.log(dayName); // Tuesday
 
 
-Q.10 Loops : for , while , do-while "
-Ans: Loops are used to repeat a block of code.
+
+7 - What is typeOf operator?
+=> The typeof operator is a operator that is placed before its single operand, which can be of any type.
+    Its value is a string indicating the data type of the operand.
+    The typeof operator evaluates to "number", "string" or "boolean" if its operand is a number, string, or boolean value
+    and returns true or false based on the evaluation.
+    Number
+    String
+    Boolean
+    object
+    Function
+    Undefined
+    Null
+
+
+8 - What is the difference between Double equals and triple equals
+=> These are the comparison operators. They always return boolean values like true or false.
+== it compares only the value.
+=== it compares both the value as well as type of data.
+If you want to find the data type of value we use typeof operator.
+let a = 5
+let b = "5"
+a == b will give true
+a === b will give false
+
+
+9 - What is the difference between undefined and null?
+=> undefined => It is and identifier in JS. When we declare a variable and do not assign any value to it, it by default gets the value assigned known as undefined in javascript.
+typeof (undefined) gives us undefined.
+Null => It is reserved keyword in JS that can be assigned to variable which represents no value.
+typeof (null) is an object.
+
+
+10 - What is Nan?
+Ans: NaN => It is known as Not a Number. It denotes that value of object is not a number.
+Any operation with numbers which is problematic or not possible we get NaN
+e.g. console.log(Math.sqrt(-2))
+console.log(3 + undefined)
+console.log(0/0)
+and any arthimetic operation wih undefined will result in NaN
+
+11 - What is Functions ?
+=> A JavaScript function is a block of code designed to perform a particular task.
+A JavaScript function is executed when "something" invokes it (calls it).
+Function is object in js beacuse of Prototype chaining. Function constructor.
+
+12 - What is Anonymous Functions ?
+=> Anonymous Function is a function that does not have any name associated with it.
+We need vairable to access the the function and execute it.
+function () {
+  console.log("Hello i am anonymous")
+}
+
+13 - What is IIFE ?
+=> IIFE (immediately inovoked Fucntion expression) is which is invoked as soon as the function is defined.
+We cannot call them whenever we want.
+(function () {
+  code
+})()
+
+
+14 - What is High Order Functions  ?
+=> Functions which accepts another function as an argument or returns a function is higher order function.
+map, filter etc
+function a (b){
+    return function (){
+        console.log("hey");
+    }
+}
+const b = () => {
+    console.log("hello");
+}
+a(b)
+
+
+15 - What is Arrow Functions ?
+=> It is newer syntax to write function in javascript introduced in ES6.
+It's syntax is let myFunction = (a, b) => a * b;
+It gets shorter! If the function has only one statement, and the statement returns a value, you can remove the brackets and the return keyword.
+It is easier to use as callback function in another function as syntax is shorter.
+
+
+16 - What is First Class Functions ?
+When functions are treated like any other variable in js they are called as first class functions.
+This function can be passed as an argument to other function also they can be returned by other functions.
+const greeting = function () {
+    console.log("Hello World");
+}
+greeting();
+
+
+
+17 - What is Function Expresssions ?
+=> It is a way by which we can define a function stored in a variable and can be accessed using variableName.
+function expression do not get hoisted because they are no more function but behave as variable and variables do not get memory at the time of memory allocation.
+Function Expression  allows us to create an anonymous function which doesn’t have any function name which is the main difference between Function Expression and Function Declaration.
+It allows us to pass the function as an argument as anonymous or arrow functions in JS.
+ A function expression can be used as an IIFE.
+  With the ES6 features introducing Arrow Function, it becomes more easier to declare function expression.
+const myFunc = function() {
+  console.log("HI")
+}
+
+
+
+18 - What is Pure Functions ?
+=>  It is a function that always returns the same output for the same arguments passed in it.
+it will not modify the input data and return us new data.
+That means function's return statement does not depend on the values outside the function.
+function add(a, b) {
+    return a + b;
+}
+
+
+19 - What is Callback Functions ?
+=> A callback is a function passed as an argument to another function.
+This technique allows a function to call another function.
+A callback function can run after another function has finished.
+e.g. map, filter, reduce.
+function hOFunc (cb) {
+    cb('Hello World')
+}
+
+hOFunc((msg) => {
+    console.log(msg)
+})
+
+20 - What is the generator function  ?
+=> A generator-function is defined like a normal function, but whenever it needs to generate a value, it does so with the yield keyword rather than return.
+It is used to generate new values according to we need it.
+The yield keyword allows us return a value back to us and suspends the function execution.
+But we are able to resume the function execution immediately after the last yield run.
+
+It is a function that generates the value or create the value when required and it will allocate the memory to that value only at the
+time when its function is being executed.
+syntax: function*
+it contains something known as yield, keyword bascially tells that at each and every time fo exceution what value has to be generated
+
+This generator function returns a next function, then while executing next function it will return an object which will contain two values: value and done.
+value is the actual required returned value.
+done will have only boolean value which signify if there is any more generation left with generator function or not if false then
+fucntion can generate more values if true then no new value can be generated then  value key will also be
+undefined
+
+
+unless next() function is not invoked generator function is not executed.
+function* fun() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+
+It returns us a generator object which can be used by calling the next method on generator object.
+This object has 2 properties value (returning from yield) and done (true or false) true when function has returned all yield and value is undefined.
+
+
+var gen =fun();
+console.log(gen.next().value) // 1
+console.log(gen.next().value) // 2
+console.log(gen.next().value) // 3
+
+
+21 - What are operators  ?
+=> In JavaScript, an operator is a special symbol used to perform operations on values and variables.
+They are categorized as:
+--> Assignment operators are used to assign values to variables.
+--> Arithmetic operators are used to perform arithmetic calculations.(+, -, /, *, %, **, ++, --)
+--> Comparison operators compare two values and return a boolean value, either true or false (==, ===, !=, >=, <=, >, <)
+--> Logical operators perform logical operations on expression and return a boolean value, either true or false (&&, ||, !)
+--> The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question
+    mark (?), then an expression to execute if the condition is true followed by a colon (:), and finally the expression to execute if the condition is false.
+    This operator is frequently used as an alternative to an if...else statement.
+      condition ? exprIfTrue : exprIfFalse
+      E.g.var age = 26;
+      var Eligibility = (age >= 21) ? "Eligible" : "Not Eligible";
+      console.log(Eligibility);
+
+
+22 - What is closure in javascript ?
+=> Closure is a combination bundled together with reference to its lexical environment.
+Closure gives you access to an outer function's scope from the inner function.
+Closures are created everytime a function is created at fucntion creation time.
+
+closure is combination of function and its lexical environment
+let a = 20;
+function add() {
+    console.log(a);
+}
+add();
+
+function outer() {
+    var num = 5;
+    fucntion inner() {
+        console.log(num)
+    }
+    return inner;
+}
+outer()();
+
+
+23 - what is function currying. With example.
+=> If a function is returning another fucntion then to execute that we need to create a new variable and invoke that variable which would be expensive from the
+memory perspective.
+function currying lets you execute the returned function with the main funtion name only and you wont have to create a new variable for that.
+function add (a) {
+	return function (b){
+		return function (c){
+			console.log(a+b+c)
+		}
+	}
+}
+
+let b = a()
+b()
+let c = b()
+c()
+
+a()()()
+
+
+
+24 - Write a function to delete a character from any string ?
+=>  let str = "Hello World";
+    function delChar (myStr, ch) {
+        return myStr.split("").filter((i) => i !== ch).join("");
+    }
+    delChar(str, 'l');
+
+
+25 - Define Weakset weakmap
+=> Weakset --> WeakSet in JavaScript is used to store a collection of objects. It adapts the same properties of that of a set i.e. does
+               not store duplicates.
+               The major difference of a WeakSet with the set is that a WeakSet is a collection of objects and not values of some particular type.
+          var weakSetObject = new WeakSet();
+          var objectOne = {};
+          var objectTwo = {};
+          weakSetObject.length();
+          weakSetObject.add(objectOne);
+          weakSetObject.add(objectTwo);
+          weakSetObject.delete(objectTwo);
+          weakSetObject.has(objectTwo);
+
+          A set is a collection of items which are unique i.e no element can be repeated.
+          var set1 = new Set(["sumit","sumit","amit","anil","anish"]);
+
+    WeakMap --> WeakMap is a new Collection introduced in ES6.
+                WeakMaps allows you to store a collection of Key-Value pairs.
+                It adopts the same properties of Map.
+                The Major difference is that keys of WeakMap cannot be a primitive data type.
+                The keys must be of type object and values can be of any data type.
+          const m = new WeakMap();
+          obj1 = {}
+          m.set(obj1, "Object 1");
+          obj2 = {}
+          m.set(obj2, "Object 2");
+          m.delete(obj2);
+          console.log(m.get(obj1));
+          console.log(m.has(obj1));
+
+
+          let john = { name: "John" };
+          let weakMap = new WeakMap();
+          weakMap.set(john, "...");
+          john = null; // john is removed from the memory.
+          // if john dies, secret documents will be destroyed automatically
+
+          In ES5, objects can have the keys only as string datatypes, Now if you want to create the keys as object so it is not possible
+          In ES6 , we got new data type as Map which was allowing us to create a data type in which key and value both can be objects.
+            const data = new Map()
+            data.set({id:1},{name:"Hars"})
+
+          Map is a collection of elements where each element is stored as a Key, value pair.
+          Map object can hold both objects and primitive values as either key or value.
+          let john = { name: "John" };
+          let map = new Map();
+          map.set(john, "...");
+          john = null; // john is still stored inside map
+
+
+          Garbage Collection: When any data or objects or any sort of values which are not being used or will not be used in future as well that time we need someone who can remove these values from memory or collect this garbage. This is known as garbage collection.
+
+
+          Map v/s WaekMap : map is iterable wheareas WeakMap are not.
+
+
+26 - What is the difference bw Map and far each
+=> Both map and forEach are array methods which take in callback function as an argument and perform a particular logic on each element of the array.
+But map returns us a new array while forEach does not return us anything.
+let arr = [1, 2, 3, 4]
+let newArr = arr.map(item => item * 2)
+
+let newArr = []
+arr.forEach(item => newArr.push(item * 2))
+console.log(newArr);
+
+
+
+27 - What is the difference between filter and find
+=>  The arr.find() method in Javascript is used to get the value of the first element in the array that satisfies the provided condition.
+It does not change the original array.
+It takes callback function as argument.
+let arr = [1, 2, 3, 4]
+var found = arr.find(item => item % 2 == 0)
+console.log(found)
+
+The arr.filter() method is used to create a new array from a given array consisting of only those elements from the given array which satisfy a condition set by the argument method.
+let arr = [1, 2, 3, 4]
+var filtered = arr.filter(item => item % 2 == 0)
+console.log(filtered)
+
+
+
+28 - Explain for Each loop
+=> Loops are used to repeat a block of code.
 usually used when we want to iterate over array.
 
 
@@ -192,12 +505,309 @@ usually used when we want to iterate over array.
     let result = '';
     let i = 0;
 
-    do {
-    i = i + 1;
-    result = result + i;
-    } while (i < 5);
+    let n = 3;
+    do{
+        n++
+    } while(n < 3)
+    console.log(n);
 
-    console.log(result);
+
+
+29 - What is Prototype  and Prototype Chaining ?
+=> The Prototype property in JavaScript is an object from which another objects inherit properties from.
+Whenever we will create a function, array or object it will also have prototype object attached with it which will have
+all the properties like for array it will have array methods like filter, map, etc. Prototype represents Parent constructor fucntion.
+Prototypes are means of inheritance in Js. So the prototype of an object would also have a prototype object.
+This continues until we  when there is no prototype object which is Object master constructor function which has
+__proto__ property as null.
+This is called prototype chaining in JS.
+function Student(name,age){
+    this.name = name;
+    this.age = age;
+}
+const student = new Student('John',32)
+console.log(student)
+
+
+let arr = [1, 2,3, 4]
+console.log(arr)
+
+let obj = {name: "tanmay", age: 22}
+console.log(obj)
+
+function Person() {
+    console.log("hello")
+}
+console.log(Person.prototype)
+
+
+Q.30 -  Spread and rest parameters opearators
+
+let a = [1,2,3];
+let b = [4,5,6];
+let c = combination of a and b = [...a, ...b]
+
+spread =>  helps you to destructure the non-primitive datatypes(arr and obj)
+
+REST
+function add(a, b, ...c) {
+    console.log(a, b, c)
+}
+
+add(1,2,3,4,5,6) a=1, b=2, c=[3,4,5,6]
+
+
+Q. 31 - What is Call apply bind method?
+=> These are the methods in js serving the same purpose with some differences. The purpose they serve is take in object and sets the this keyword in a function to the specified object.
+this refers to the object from where the function is invoked from.
+bind() => it creates and returns a new function
+call() and apply() => it set this keyword and immediately executes the function doesnt return anything.
+only difference between call() and apply() is call accepts comma seperated arguments and apply accepts array of arguments
+const john = {
+    name: 'John',
+    age: 22
+}
+const jane = {
+    name: 'Jane',
+    age: 26
+}
+function greeting () {
+    consoel.log(`Hi my name is ${this.name} and I am ${this.age} years old.`)
+}
+greeting.call(john) // Hi my name is John and I am 22 years old.
+let newFunc = greeting.bind(jane)
+newFunc(); // Hi my name is Jane and I am 26 years old.
+
+
+Q. 32 - Real DOM VS Virtual DOM
+=> Document Object Model (DOM) is a programming interface for HTML Documents.
+    It is like a lightweight copy of original DOM which is stored in React's Virtual Memory.
+    With DOM, we can easily access and manipulate tags, IDs, classes, attributes, or elements using methods like getElementById etc.
+    It is itnroduced in react to make the performance of the application better and faster.
+Every time there is a change, it doesn't directly gets updated in Original DOM it gets updated in Virtual DOM.
+Virtual DOM computes the best possible way to minimize operations on the original DOM by sending changes in batches instead of every single change.
+
+
+Q. 33 - Implement code to check a number is palindrome or not ?
+=>  function PalinCheck (num) {
+    let temp = num;
+    let rev = 0;
+    while(num > 0) {
+        rem = num % 10;
+        num = parseInt(num / 10)
+        rev = rev*10 + rem
+    }
+    if(temp == rev) {
+        console.log("Number is palindrome")
+    } else {
+        console.log("Number is not palindrome")
+    }
+}
+
+
+
+Q.34 - Difference between Splice and slice?
+=>  The methods slice() and splice() are methods for array.
+
+slice() --> This method is used to get a new array by selecting a sub-array of a given array.
+array_name.slice(s, e) including start index and excluding end index.
+original array does not get changed.
+It works on strings.
+let arr = [1, 2, 3, 4, 5]
+let newArr = arr.slice(2, 4)
+console.log(newArr) // [3, 4]
+
+splice() --> This method is used to add/remove an item from the given array.
+array_name.splice(i, n, item 1, item 2) i is start index, n is no. of items to remove and item1, item2 are items to add.
+it does not work on strings.
+original array gets changed.
+
+let arr = [1, 2, 3, 4, 5]
+arr.splice(2, 0, 'hello', 'world')
+console.log(arr) // [ 1, 2, 'hello', 'world', 3, 4, 5 ]
+
+Q.35 Difference between Document and Window Object?
+=>  Document --> It represents any HTML document or web page that is loaded in the browser.
+                It is loaded inside the window.
+                It is the object of window property.
+                All the tags, elements with attributes in HTML are part of the document.
+                We can access the document from a window using the window. document
+                Properties of document objects such as title, body, cookies, etc can also be accessed by a window like this window. document.title
+
+    Window --> It represents a browser window or frame that displays the contents of the webpage.
+            It is the very first object that is loaded in the browser.
+            It is the object of the browser.
+            Global objects, functions, and variables of JavaScript are members of the window object.
+            We can access the window from the window only. i.e. window.window
+            Properties of the window object cannot be accessed by the document object.
+
+
+Q.36 What are callbacks and why do we use it
+=> Callbacks make sure that a function is not going to run before a task is completed but will run right after the task has completed.
+We can create callback function using arrow fucntions or anonymous functions. and they are passed into another function.
+const message = function() {
+    console.log("Hello i am callback");
+}
+
+function highOrder(cb) {
+    console.log("Execute me first then cb");
+    cb();
+}
+highOrder(message)
+
+
+Q.37 What are the different types of errors in javascript
+=> An error is an action which is inaccurate or incorrect.
+There are three general types of errors that can occur when playing a JavaScript program. These errors are:
+Load-time errors
+Runtime errors
+Logic errors
+
+Syntax error (Load Time Error): is an error in the syntax of a sequence of characters that is intended to be written in a particular programming language it is also the load-time error if the syntax is not correct then it will give an error message.
+
+Runtime errors: A runtime error is an error that occurs during the running of the program, also known as the exceptions. Like accessing a variable or executing a function which does not exist.
+
+Logical Errors: Logic errors can be the most difficult type of errors to track down. These errors are not the result of a syntax or runtime error. Instead, they occur when you make a mistake in the logic that drives your script and you do not get the result you expected. throw
+
+
+Q.38 Can you explain why we use async-await
+=> async aand await makes promises easier to write. async makes the function return a promise and await makes a function wait
+for a promise.
+We need async-await because:
+function add (a, b) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(a + b), 2000)
+    })
+}
+
+add(1, 5).then(sum => console.log(sum)) // logs after 2 seconds 6
+
+function increaseSalary(base, increase) {
+    const newSalary = add(base, increase);
+    console.log(`NewSalary ${newSalary}`)
+    return newSalary;
+}
+Unfortunately, the function increaseSalary() doesn't know how to handle promises. The function considers promises regular objects: it doesn't know how and when to extract values from promises.
+
+async function increaseSalary(base, increase) {
+    const newSalary = await add(base, increase);
+    console.log(`NewSalary ${newSalary}`)
+    return newSalary;
+}
+
+
+Q.39 What are Promises and why do we need them?
+=>  Promise is an object in javascript that represents eventual completion or failure of an asynchronous operation and its resulting value.
+Promises are used to handle asynchronous operations in JavaScript. They are easy to manage when dealing with multiple asynchronous operations where callbacks can create callback hell leading to unmanageable code.
+Promise can be created using Promise constructor. which takes in a callback function and which has 2 parameters resolve and reject.
+let promise1 = new Promise((resolve, reject) => {
+    const x = 5;
+    const y = 5;
+    if (x === y ) {
+        resolve("Both are equal")
+    } else {
+        reject("Not equal")
+    }
+    resolve('Promise has been fulfilled')
+    reject('Promise has been rejected')
+})
+Promise can be in one of the 3 state at an instance of time:
+1) pending: initial state, promise neither been resolved nor rejected
+2) fulfilled: it means operation has been completed successfully (resolved)
+3) rejected: it means operation has been failed to complete.
+There are also promise consumers:
+then() =>  it is invoked when promise gets fulfilled. It takes in a callback function and the parameter of the callback function will be equal to the resolve value.
+.catch() => it is invoked when promise gets rejected. It takes in a callback function and the parameter of the callback function will be equal to the reject value.
+promise1
+    .then(result =>  console.log(result))
+    .catch(result =>  console.log(result))
+
+
+Q.40 Difference between ES5 and ES6
+=> ES5 --> 	ECMA script is a trademarked scripting language specification defined by Ecma international. The fifth edition of the  same is known as ES5.
+            It was introduced in 2009.
+            It supports primitive data types that are string, number, boolean, null, and undefined.
+            There are only one way to define the variables by using the var keyword.
+            It has a lower performance as compared to ES6.
+            In ES5, both function and return keywords are used to define a function.
+
+    ES6 --> ECMA script is a trademarked scripting language specification defined by Ecma international. The sixth edition of the same is known as ES6
+            It was introduced in 2015.
+            In ES6, there are some additions to JavaScript data types. It introduced a new primitive data type ‘symbol’ for supporting unique values.
+            There are two new ways to define variables that are let and const.
+            It has a higher performance than ES5.
+            An arrow function is a new feature introduced in ES6 by which we don’t require the function keyword to define the function.
+
+
+Q.41 Explain the set time out function and write its syntax
+=>   It is an asynchronous function, it will not pause execution of other functions in call stack (As in js code is exceuted line by line and next line to execute previous one should be finished).
+It take a callback function to execute and time in ms as arguments and it exceutes that callback function after specified time.
+It can be used in alarms or reminders, delay some kind of executions.
+console.log("i am first")
+setTimeout(() => {
+    "I am Last"
+}, 3000);
+console.log("I am Second");
+
+
+Q.42 Explain promise and call back hell
+=>  It is an issue caused by coding with complex nested callbacks.
+Each and every callback takes an argument that is result of previous callbacks.
+The code structure looks like a pyramid, making it difficult to read and maintain.
+If there is an error in one function, all other functions get affected.
+E.g. function printLetter(letter, cb) {
+    setTimeout(() => {
+        console.log(letter);
+        cb();
+    }, 1000)
+}
+
+function print() {
+    printLetter("A", () => {
+        printLetter("B", () => {
+            printLetter("C", () => {
+                printLetter("D", () => {
+                    console.log("Done")
+                })
+            })
+        })
+    })
+}
+
+Promise chaining is useful when we need to execute two or more asynchronous operations back to back where each subsequent operation starts when the previous operation succeeds with result from previous step.
+It is concept by which we may intialize another promise inside our .then()  method and accordingly we may execute our results.
+E.g.
+function callPromise(letter) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(letter)
+            resolve()
+        }, 1000)
+    })
+}
+
+callPromise("A")
+    .then(() => callPromise("B"))
+    .then(() => callPromise("C"))
+    .then(() => callPromise("D"))
+
+
+Q.43 Event loop
+=> Event Loop => Whenever a asynchronous operation or function is being it doesnt directly go into the callstack there is queue called as callbakc queue which is where it goes. this queue follows principle of FIFO(first in first out). And event loop frequently checks whether the call stack is empty or not, Whenever it founds it is empty is pushes the first call of callback queue to call stack.
+
+
+
+
+What are callbacks and why do we use it
+What are the different types of errors in javascript
+"Load time error
+Run time error "
+Can you explain why we use async-await
+What are Promises and why do we need them?
+Difference between ES5 and ES6
+Explain the set time out function and write its syntax
+Explain promise and call back hell
+Event loop
 
 
 
