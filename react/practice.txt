@@ -1,0 +1,310 @@
+"Q1 : What is Virtual DOM
+=> It is like a lightweight copy of original DOM which is stored in React's Virtual Memory.
+It is itnroduced in react to make the performance of the application better and faster.
+Every time there is a change, it doesn't directly gets updated in Original DOM it gets updated in Virtual DOM.
+Virtual DOM computes the best possible way to minimize operations on the original DOM by sending changes in batches instead of every single change.
+
+React maintains two Virtual DOM at an instance of time, one is pre-update version of Virtual DOM and other is updated one.
+These two Virtual DOMs are compared to figure out the changes took place in the components.
+This Process of comparing the current Virtual DOM with previous one is known as "Diffing Algorithm".
+
+When comparing the two Virtual DOMs using Diffing Algorithm, React finds out what exactly has changed then it updates that changes on the orignal DOM.
+These changes to original DOM are sent in batches instead of sending for single change.
+This entire process of transforming changes to original DOM is called Recoinciliation.
+
+forceUpdate is another method to update the virtual dom.
+
+Q2 : What is SPA
+=> SPA consists of just one single web page that interacts with the user dynamically rewriting the current page rather than loading the entire new pages from the server.
+React uses SPA principles. due to routing
+SPA are faster and execute logic in the web browser itself rather than on server as in MPA.
+If business deal with single product then SPA is best, while if variety of services and products we need bifurcate them on different pages using MPA.
+
+Q3 : What is difference between class and functional component?
+=> 1) ->  A functional Component is just plain JS function which accepts props as an argument and returns a React Element.
+-> There is no render method used.
+-> They used to be stateless but now hooks can be used to make them stateful.
+-> React lifecycle methods cannot be used.
+2) -> A class Component requires ypu to extend from React.Component and render function returning React element.
+-> Must have render() method returning JSX.
+-> No hooks can be used class components has their own state object.
+-> React lifecycle methods can be used.
+We are shifting to functional as JavaScript is functional programming language.
+
+Q4. What does mean by state and its use in react?
+=> State => State (data object) represents parts of application that can change. Each component can have its state. State is mutuable and it is local to component only.
+It is used when we want to display dynamic content on the page and make the page user interactive.
+In class component we can directly define state object while in react we use useState hook.
+State is an object which holds the data of the component.
+import React from "react";
+
+class Demo extends React.Component{
+    constructor(){
+        super();
+        this.state={
+
+        }
+    }
+    state = {
+
+    }
+    render(){
+        let user = [];
+        return(
+            <div></div>
+        )
+    }
+}
+
+
+Q5. What is JSX and why do we use it instead of js?
+=> Jsx stands for JavaScript XML. It allows us to directly write HTML in JS code.
+Jsx allows writing expression or variable in {}.
+Jsx html code should be wrapped into one top-level otherwise it will give an error as react returns only one element.
+
+
+Q6. Routing Implementation
+=> React Router is a standard library for routing in React.
+It enables the navigation among various components, allows changing the browser URL and keeps the UI in sync with the URL.
+The main components of React Router are:
+1) BrowserRouter => It is parent component that is used to store all of the other components.
+2) Routes => Routes are chosen based on best match to render one of the component.
+3) Route => It conditionally renders the component when it's path specified matches the current browser URL. It mainly has two attributes path and element.
+4) Link => Link is used to create links to different routes and implement navigaation in the application.
+
+
+Q7. Is react library or frameworks?
+=> Library is a collection of functions :Framework is a collection of multiple other libraries.
+    Inversion of Control = In case of library the Execution of code will be decided by the developers whereas in case of framework the execution is already defined or decided.
+    In case of Framework, it follows MVC structure (model view controller) whereas a library can only be the one for example React is View of MVC.
+
+
+Q8. What is the Difference between react and react native? Which one is library or framework?
+=> React is a library for building web user interfaces and components, React Native is a framework dedicated to cross-platform mobile development.
+In Reactjs, virtual DOM is used to render browser code in Reactjs while in React Native, native APIs are used to render components in mobile.
+The apps developed with Reactjs renders HTML in UI while React Native uses JSX for rendering UI, which is nothing but javascript.
+CSS is used for creating styling in Reactjs while a stylesheet is used for styling in React Native.
+In Reactjs, the animation is possible, using CSS, just like web development while in React Native, an animated API is used for inducing animation across different components of the React Native application.
+If the need is to build a high performing, dynamic, and responsive UI for web interfaces, then Reactjs is the best option while if the need is to give mobile apps a truly native feeling, then React Native is the best option.
+
+
+android studio - only android apps
+flutter - java to cross-platform mobile development
+React Native - cross-platform mobile development using js
+
+
+
+
+Q9.What is the package name you are using for routing
+=> react-router-dom
+React Router is a standard library for routing in React.
+It enables the navigation among various components, allows changing the browser URL and keeps the UI in sync with the URL.
+The main components of React Router are:
+1) BrowserRouter => It is parent component that is used to store all of the other components.
+2) Routes => Routes are chosen based on best match to render one of the component.
+3) Route => It conditionally renders the component when it's path specified matches the current browser URL. It mainly has two attributes path and element.
+4) Link => Link is used to create links to different routes and implement navigaation in the application.
+
+Difference between React-router an react-router-dom
+
+Q10.What is package.json
+=> package.json is used to store the metadata associated with the project as well as to store the list of dependency packages
+A package.json file:
+--> lists the packages your project depends on
+--> specifies versions of a package that your project can use.
+--> makes your build reproducible, and therefore easier to share with other developers.
+
+name is the name of your app, which you give while executing create-react-app<name-of-application>
+version is the current version of your app.
+dependencies contains all the required node modules and versions required for the application in production.
+it contains three dependencies, which allows us to use react , react-domand react-scripts in our JavaScript. react-scripts provide a set of useful development scripts for working with React.
+
+
+Q11.How do you use pass data from one component to another
+=> Data can be passed in react in three ways:
+1. Using Props => Props are known as properties that can be used to pass data from one component to another.
+                  It cannot be modified, they are read-only and immutable.
+2. Using Redux.
+  Redux can be described in 3 fundamental principles:
+  1) Single Source of truth => The global state of your application is stored within a single store.
+    It makes it easier to debug and inspect an application.
+  2) State is read only => The only way to change the state is to dispatch an action object describing what happened. This ensures that views or network callbacks will never write directly to the state.
+  3) Changes are made with pure functions => To specify how the state should be changed or updated we write pure functions known as reducers.
+  Reducers takes in state and an action and return the newly updated state object.
+3. ContextAPI
+
+
+Q12.How do you pass data from parent to child?
+=> Props:
+
+Q13. What is an event in react
+=> Just like HTML DOM events, React can perform actions based on user events.
+React events are written in camelCase syntax: onClick instead of onclick.
+React event handlers are written inside curly braces: onClick={shoot} instead of
+onClick="shoot()"
+
+
+Q14. What is lazy loading in react ? (drawback)
+=> Lazy loading is the technique used in optimizing your applications, this works by rendering only needed or
+critical user interface items first, then quietly rendering the non-critical items later.
+In situations where we know that certain code/features will not be accessible to all the users or the user does
+not access it frequently, it is best to load them when the user requests for it. This improves user experience as
+well as initial loading time.
+REACT.LAZY():
+In React.lazy() is a function that lets you load components lazily through what is called code splitting without help from any external libraries. React.lazy() makes it possible for us to dynamically import components but they are rendered like regular components. This means that the bundle containing the component will only be loaded when the component is rendered.
+React.lazy() takes a function that returns a promise as it’s argument, the function returns a promise by calling import() to load the content. The returned Promise resolves to a module with a default containing the React Component.
+// without lazy
+import MyComponent from './MyComponent';
+
+// with lazy
+const MyComponent = React.lazy(() => import('./MyComponent'));
+
+
+React.Suspense is a component that can be used to wrap lazy components. A React.Suspense takes a fallback prop that can be any react element, it renders this prop as a placeholder to deliver a smooth experience and also give user feedback while the lazy component is being loaded.
+//using suspense
+import React, { Suspense } from 'react';
+
+const MyComponent = React.lazy(() => import('./MyComponent'));
+
+const App = () => {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading ... </div>}>
+        <MyComponent />
+      </Suspense>
+    </div>
+  );
+}
+
+
+Q.15  Folder structure
+=>  node_modules(Folder)
+      --> Contains all the dependencies that are needed for an initial working react app
+    .gitignore(file)
+      --> This file specifies intentionally untracked files that Git should ignore
+    package.json(file)
+      --> This file contains various metadata that is relevant to our project.
+      --> It specifies the dependencies being used in the project which helps npm setup same environment on different machine for our
+          project.
+    README.md(file)
+      --> This file can be used to define usage, build instructions, summary of project, etc.
+      --> It uses markdown markup language to create content.
+     package-lock.json
+      --> it ensures that your package is consistent across various machines by storing the versions of which dependencies are installed with your package.
+      public(folder)
+        --> Root folder that gets served up as our react app.
+        index.html(file)
+          --> It is the template file which is served up when we run start script to launch our app.
+      src(folder)
+        --> In simplest form it’s our react app folder i.e. containing components, tests, css files etc. It’s the mind of our app.
+      App.js(file) --> Root Component
+      index.js --> renders our component
+
+
+Q.16 Multi-page and single-page rendering.
+=> SPA => A single-page application is an app that works inside a browser and does not require page reloading during use.
+          SPA requests the markup and data independently and renders pages straight in the browser.
+          As the data is handled in browser it is less secure as client-side scripts cn be injected into web application.
+          social networking site (SEO doesn't matter)
+          SEO: Search engines can rank different pages, not the website. And you know how SPAs are built to combine pages into one single application. This means you can’t rank any separate page like you can with traditional websites. So, if we think from the SEO perspective, SPAs are a poor choice.
+          Scalibility: The problem with the single page app is that it is not scalable. If you will try to add new content on the page, it will only increase your loading time.
+   MPA => Every change eg. display the data or submit data back to server requests rendering a new page from the server in the browser.
+          If the application is large and website has variety of products then to bifurcate them on different pages MPA is used.
+          online stores
+
+
+
+Q.17 what is hook, types of hooks and explain
+=> 1) useState Hook: -> It allows us to track the state in the functional component.
+-> to use this hook we need to import it from react.
+-> It accepts an initial state and returns array having two values:
+    i) the current state
+    ii) a function that updates the state.
+
+2) useContext Hook: -> It is a way to manage state globally in react app. It works as an consumer for the context API.
+-> It can be used together with the useState Hook to share between deeply nested components more easily.
+-> It avoids the common problem in react known as Prop drilling.
+
+3) useReducer Hook: -> It is similar to useState Hook. It is used when you have complex state logic, useReducer may be useful.
+-> It accepts two arguments
+    i) reducer function
+    ii) initialState
+-> The reducer function contains your custom state logic and the initialState can be simple value but generally will contain an object.
+-> This Hook returns the current state and a disptach method (which dispatches action object)
+-> The reducer is pure function that accepts 2 parameters:
+    i) current state
+    ii) action object
+    and it returns us the new state.
+
+4) useRef Hook -> The useRef Hook allows you to persist values between renders.
+                  It can be used to store a mutable value that does not cause a re-render when updated.
+                  It can be used to access a DOM element directly.
+                  useRef() only returns one item. It returns an Object called current.
+
+5) useEffect Hook -> The useEffect Hook allows you to perform side effects in your components.
+                      it takes 2 arguments callback function and dependency array on which it can behave as different
+                      lifecycle methods.
+
+6) useCallback Hook -> The React useCallback Hook returns a memoized callback function.
+
+7) useMemo Hook -> The React useMemo Hook returns a memoized value.
+
+
+
+
+
+Q. Difference b/w Stateful and stateless Component
+=> Stateful components has it's on state and is dependent on its properties.
+Stateful component can be class component with state object or functional component using useState() Hook.
+Stateless component does not have any state, it takes props from another component and returns the react element.
+Stateful component is used when we want to take user input, make page interactive or make page content dynamic.
+Stateless component is used when we just want to make a resuable component which need not to be interactive and have static page content.
+
+Q. How do you switch one component to another
+=> Using Conditional Rendering
+
+
+Q. Difference between Axios and fetch
+=>
+
+
+Q. What are React Life cycles Explain each one with Example?
+=> A React Component can go through 3 phases in it's lifecycle:
+1) Mounting => It is phase of rendering the JSX for the first time or putting it into the DOM.
+constructor(), render(), componentDidMount() are invoked during this phase.
+2) Updating => It is phase whenever state or props of component gets updated.
+shouldComponentUpdate(), render(), componentDidUpdate() gets called during this phase.
+3) Unmounting => It is phase when the component is removed from the DOM.
+componentWillUnmount() is called in this phase.
+
+
+Q. What is UseState Hook ?(Implementation)
+=> 1) useState Hook: -> It allows us to track the state in the functional component.
+-> to use this hook we need to import it from react.
+-> It accepts an initial state and returns array having two values:
+    i) the current state
+    ii) a function that updates the state.
+
+
+Q. What is useEffect Hook ?(Implementation)
+=>  The useEffect Hook allows you to perform side effects in your components.
+    it takes 2 arguments callback function and dependency array on which it can behave as different
+    lifecycle methods.
+
+
+Q. What is UseReducer Hook ?(Implementation)
+=>  It is similar to useState Hook. It is used when you have complex state logic, useReducer may be useful.
+-> It accepts two arguments
+    i) reducer function
+    ii) initialState
+-> The reducer function contains your custom state logic and the initialState can be simple value but generally will contain an object.
+-> This Hook returns the current state and a disptach method (which dispatches action object)
+-> The reducer is pure function that accepts 2 parameters:
+    i) current state
+    ii) action object
+    and it returns us the new state.
+
+
+
+
+

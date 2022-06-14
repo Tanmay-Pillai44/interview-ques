@@ -659,20 +659,25 @@ highOrder(message)
 Q.37 What are the different types of errors in javascript
 => An error is an action which is inaccurate or incorrect.
 There are three general types of errors that can occur when playing a JavaScript program. These errors are:
+ReferenceError
+TypeError
+SyntaxError
+
+Reference Error: This error is thrown when a reference made to a variable/item is broken. That is the variable/item doesn’t exist.
+Type error: TypeError occurs when an operation is performed on a wrong data type. Maybe a boolean is expected but a sting is found.
+using array methods on variable.
+Syntax Error: Human made error. This is the most common error we encounter. This error occurs when we type code that the JS engine can understand.
+
 Load-time errors
 Runtime errors
-Logic errors
 
-Syntax error (Load Time Error): is an error in the syntax of a sequence of characters that is intended to be written in a particular programming language it is also the load-time error if the syntax is not correct then it will give an error message.
+Syntax error (Load Time Error): is an error in the syntax of a sequence of characters that is intended to be written in a particular programming language it is also the load-time error if the syntax is not correct then it will give an error message. when cript gets load for the first time. Human made errors.
 
-Runtime errors: A runtime error is an error that occurs during the running of the program, also known as the exceptions. Like accessing a variable or executing a function which does not exist.
-
-Logical Errors: Logic errors can be the most difficult type of errors to track down. These errors are not the result of a syntax or runtime error. Instead, they occur when you make a mistake in the logic that drives your script and you do not get the result you expected. throw
-
+Runtime errors: A runtime error is an error that occurs during the running of the program, also known as the exceptions. Like accessing a variable or executing a function which does not exist. when script is running
 
 Q.38 Can you explain why we use async-await
-=> async aand await makes promises easier to write. async makes the function return a promise and await makes a function wait
-for a promise.
+=> async and await makes promises easier to write. await makes a function wait
+for a promise and used before a function having a promise and used in a function which is defined asynchronously using async keyword.
 We need async-await because:
 function add (a, b) {
     return new Promise((resolve, reject) => {
@@ -700,6 +705,7 @@ Q.39 What are Promises and why do we need them?
 =>  Promise is an object in javascript that represents eventual completion or failure of an asynchronous operation and its resulting value.
 Promises are used to handle asynchronous operations in JavaScript. They are easy to manage when dealing with multiple asynchronous operations where callbacks can create callback hell leading to unmanageable code.
 Promise can be created using Promise constructor. which takes in a callback function and which has 2 parameters resolve and reject.
+Promise makes js synchronous again when we have asynchronous in js
 let promise1 = new Promise((resolve, reject) => {
     const x = 5;
     const y = 5;
@@ -724,14 +730,14 @@ promise1
 
 
 Q.40 Difference between ES5 and ES6
-=> ES5 --> 	ECMA script is a trademarked scripting language specification defined by Ecma international. The fifth edition of the  same is known as ES5.
+=> ES5 --> 	ECMA script is a scripting language defined by Ecma international. The fifth edition of the  same is known as ES5.
             It was introduced in 2009.
             It supports primitive data types that are string, number, boolean, null, and undefined.
             There are only one way to define the variables by using the var keyword.
             It has a lower performance as compared to ES6.
             In ES5, both function and return keywords are used to define a function.
 
-    ES6 --> ECMA script is a trademarked scripting language specification defined by Ecma international. The sixth edition of the same is known as ES6
+    ES6 --> ECMA script is a scripting language defined by Ecma international. The sixth edition of the same is known as ES6
             It was introduced in 2015.
             In ES6, there are some additions to JavaScript data types. It introduced a new primitive data type ‘symbol’ for supporting unique values.
             There are two new ways to define variables that are let and const.
@@ -740,8 +746,8 @@ Q.40 Difference between ES5 and ES6
 
 
 Q.41 Explain the set time out function and write its syntax
-=>   It is an asynchronous function, it will not pause execution of other functions in call stack (As in js code is exceuted line by line and next line to execute previous one should be finished).
-It take a callback function to execute and time in ms as arguments and it exceutes that callback function after specified time.
+=>   It is an asynchronous function, it will not pause execution of other functions in call stack (As in js code is exceuted line by line and next line to execute previous one should be finished). It is Part of Web api.
+It take a callback function to execute and time in ms as arguments and it exceutes that callback function after specified time in milliseconds .
 It can be used in alarms or reminders, delay some kind of executions.
 console.log("i am first")
 setTimeout(() => {
@@ -749,12 +755,15 @@ setTimeout(() => {
 }, 3000);
 console.log("I am Second");
 
+setTimeout() executes only once after specified but setInterval() is executed after every interval of specified time.
+
 
 Q.42 Explain promise and call back hell
 =>  It is an issue caused by coding with complex nested callbacks.
 Each and every callback takes an argument that is result of previous callbacks.
-The code structure looks like a pyramid, making it difficult to read and maintain.
 If there is an error in one function, all other functions get affected.
+The code structure looks like a pyramid, making it difficult to read and maintain.
+
 E.g. function printLetter(letter, cb) {
     setTimeout(() => {
         console.log(letter);

@@ -84,5 +84,62 @@
 // obj1.message.bind(obj2)()
 
 
+// let myPromise = new Promise((resolve, reject) => {
+//     const x = 5;
+//     const y = 5;
+//     if (x === y ) {
+//         resolve("Both are equal")
+//     } else {
+//         reject("Not equal")
+//     }
+// })
 
 
+// async aand await makes promises easier to write. async makes the function return a promise and await makes a function wait
+// for a promise.
+
+// function add (a, b) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => resolve(a + b), 2000)
+//     })
+// }
+
+// async function newAdd(a, b) {
+//     const newValue = await add(a, b);
+//     return newValue;
+// } as newAdd does not know how to handle promise the async and await can be used
+
+
+// ES5 --> 	ECMA script is a scripting language defined by Ecma international. The fifth edition of the  same is known as ES5.
+//             It was introduced in 2009.
+//             It supports primitive data types that are string, number, boolean, null, and undefined.
+//             There are only one way to define the variables by using the var keyword.
+//             In ES5, both function and return keywords are used to define a function.
+
+//     ES6 --> ECMA script is a scripting language defined by Ecma international. The sixth edition of the same is known as ES6
+//             It was introduced in 2015.
+//             In ES6, there are some additions to JavaScript data types. It introduced a new primitive data type ‘symbol’ for supporting unique values.
+//             There are two new ways to define variables that are let and const.
+//             An arrow function is a new feature introduced in ES6 by which we don’t require the function keyword to define the function.
+
+// variable, arrow, import and export introduced, spread operator, Generator function, map and set, weakmap and weakset
+
+// It is an asynchronous function, it will not pause execution of other functions in call stack. It is part of W
+
+
+function printLetter(letter, cb) {
+    setTimeout(() => {
+        console.log(letter);
+        cb();
+    }, 1000)
+}
+
+function print() {
+    printLetter("A", () => {
+        printLetter("B", () => {
+            printLetter("C", () => {
+                console.log("Done")
+            })
+        })
+    })
+}

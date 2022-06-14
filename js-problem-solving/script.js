@@ -236,3 +236,54 @@ const Factorial = (n) => {
     }
 }
 
+
+
+var Count_Occ = (s) =>
+{
+  // let newStr ='';
+  // let arr = s.split('');
+  // let sorted = arr.sort();
+  // let str = sorted.join(''); //beepprsty
+  // for(let i = 0; i < str.length; i++) {
+  //   let count = str.split(str[i]).length - 1;
+  //   if (!(newStr).includes(str[i])) {
+  //     if(count > 1) {
+  //       newStr = newStr + str[i] + count;
+  //     }
+  //   }
+  // }
+  // return newStr;
+
+
+  let freq = new Array(26);
+  freq.fill(0);
+
+  for (let i = 0; i < s.length; i++) {
+    let idx = s[i].charCodeAt() - 'a'.charCodeAt();
+    freq[idx] = freq[idx] + 1;
+  }
+
+  let ans ='';
+
+  for(let i = 0; i < 26; i++) {
+    if(freq[i] > 1) {
+      //convert to char
+      ans += String.fromCharCode(i + 'a'.charCodeAt()); //char
+      ans += freq[i] // freq
+    }
+  }
+
+  return ans;
+};
+
+
+function concat(...args) {
+	let ans =[];
+	for(let i = 0; i <args.length; i++) {
+		for(let j = 0; j < args[i].length; j++) {
+			ans.push(args[i][j])
+		}
+	}
+	return ans;
+}
+
