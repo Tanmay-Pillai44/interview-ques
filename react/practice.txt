@@ -77,6 +77,7 @@ Q7. Is react library or frameworks?
 => Library is a collection of functions :Framework is a collection of multiple other libraries.
     Inversion of Control = In case of library the Execution of code will be decided by the developers whereas in case of framework the execution is already defined or decided.
     In case of Framework, it follows MVC structure (model view controller) whereas a library can only be the one for example React is View of MVC.
+    function => module => library => framework
 
 
 Q8. What is the Difference between react and react native? Which one is library or framework?
@@ -117,7 +118,7 @@ A package.json file:
 name is the name of your app, which you give while executing create-react-app<name-of-application>
 version is the current version of your app.
 dependencies contains all the required node modules and versions required for the application in production.
-it contains three dependencies, which allows us to use react , react-domand react-scripts in our JavaScript. react-scripts provide a set of useful development scripts for working with React.
+it contains three dependencies, which allows us to use react , react-dom and react-scripts in our JavaScript. react-scripts provide a set of useful development scripts for working with React.
 
 
 Q11.How do you use pass data from one component to another
@@ -261,11 +262,47 @@ Stateful component is used when we want to take user input, make page interactiv
 Stateless component is used when we just want to make a resuable component which need not to be interactive and have static page content.
 
 Q. How do you switch one component to another
-=> Using Conditional Rendering
+=> Using Conditional Rendering: if-else, &&, Ternary Operator
 
 
 Q. Difference between Axios and fetch
-=>
+=> FETCH:
+    The Fetch API provides a fetch() method defined on the window object.
+    Fetch is built into most modern browsers; no installation is required as such.
+    Fetch uses the body property.
+    Fetch’s body has to be stringified.
+    The fetch method has one mandatory argument- the URL of the resource to be fetched.
+    This method returns a Promise that can be used to retrieve the response of the request.
+    fetch('path-to-the-resource-to-be-fetched', {
+      method: "GET",
+      body: data,
+    })
+      .then((response) => {
+
+        // Code for handling the response
+      })
+      .catch((error) => {
+
+        // Code for handling the error
+      });
+
+    AXIOS: (it is built on fetch) syntax is comparatively simpler related to fetch.
+      Axios is a Javascript library used to make HTTP requests and it supports the Promise API that is native to JS ES6.
+      Axios is a stand-alone third party package that can be easily installed.
+      Axios uses the data property.
+      Axios’ data contains the object.
+      It can be used intercept HTTP requests and responses and enables client-side protection against XSRF.
+      XSRF: It is an attack vector that tricks a web browser into executing an unwanted action in an application to which a user is logged in.
+      axios.get('url')
+        .then((response) => {
+
+          // Code for handling the response
+        })
+        .catch((error) => {
+
+          // Code for handling the error
+        })
+
 
 
 Q. What are React Life cycles Explain each one with Example?
@@ -290,6 +327,7 @@ Q. What is useEffect Hook ?(Implementation)
 =>  The useEffect Hook allows you to perform side effects in your components.
     it takes 2 arguments callback function and dependency array on which it can behave as different
     lifecycle methods.
+    first state varibles => return => useEffect
 
 
 Q. What is UseReducer Hook ?(Implementation)
@@ -303,6 +341,46 @@ Q. What is UseReducer Hook ?(Implementation)
     i) current state
     ii) action object
     and it returns us the new state.
+
+
+
+What is UseMemo Hook ?(Implementation)
+=> The React useMemo Hook returns a memoized value.
+The useMemo Hook only runs when one of its dependencies update.
+
+
+What is UseRef Hook ?(Implementation)
+=> The useRef Hook allows you to persist values between renders.
+      It can be used to store a mutable value that does not cause a re-render when updated.
+      It can be used to access a DOM element directly.
+      useRef() only returns one item. It returns an Object called current.
+
+
+What is Context api
+=> The React Context API is a way for a React app to effectively produce global variables that can be passed around. This is the alternative to "prop drilling" or moving props from grandparent to child to parent, and so on.
+React.createContext() is all you need. It returns a consumer and a provider. Provider is a component that as it's names suggests provides the state to its children. It will hold the "store" and be the parent of all the components that might need that store. Consumer as it so happens is a component that consumes and uses the state.
+
+
+Difference between callback and useCallback Hook ?
+=> useCallback() Hook => The React useCallback Hook returns a memoized callback function.
+While callback is a function is passed to another function as an argument.
+
+
+What is Props Drilling Concept ?What is State Uplifting ?
+=> Props drilling => It is situation when the we want to pass data from higher level component to deeply nested child component we need to pass it as props at every level between them which makes unecessary render of between components.
+It can be avoided using context API.
+
+State Uplifiting => When we have state or data in one component and we need it in one on its sibling component which is not possible directly so we need to uplift that data to common parent component of both that is state uplifting.
+
+
+Difference between useEffect and useContext ?
+=>  The useEffect Hook allows you to perform side effects in your components.
+    it takes 2 arguments callback function and dependency array on which it can behave as different
+    lifecycle methods.
+    first state varibles => return => useEffect
+
+    useContext is a hook which is used with context api to access the the context in the component we use this hook.
+
 
 
 
