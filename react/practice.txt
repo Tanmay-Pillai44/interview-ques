@@ -316,7 +316,7 @@ componentWillUnmount() is called in this phase.
 
 
 Q. What is UseState Hook ?(Implementation)
-=> 1) useState Hook: -> It allows us to track the state in the functional component.
+=> 1) useState Hook: -> It allows us to create the state in the functional component.
 -> to use this hook we need to import it from react.
 -> It accepts an initial state and returns array having two values:
     i) the current state
@@ -327,6 +327,10 @@ Q. What is useEffect Hook ?(Implementation)
 =>  The useEffect Hook allows you to perform side effects in your components.
     it takes 2 arguments callback function and dependency array on which it can behave as different
     lifecycle methods.
+    Also it returns a cleanup function which is used to clear the cache memory during unmounting phase.
+    Mounting: written in fucntion only will be executed
+    Updating: written in function and cleanup function will be executed
+    Unmounting: cleanup function is executed
     first state varibles => return => useEffect
 
 
@@ -347,13 +351,19 @@ Q. What is UseReducer Hook ?(Implementation)
 What is UseMemo Hook ?(Implementation)
 => The React useMemo Hook returns a memoized value.
 The useMemo Hook only runs when one of its dependencies update.
+if particular state is
+
+MEMOIZATION --> same input execution will not happen, and same output will be returned.
 
 
 What is UseRef Hook ?(Implementation)
-=> The useRef Hook allows you to persist values between renders.
+=> The useRef Hook allows you to persist values between renders. create ref vairbale using useRef hook.
       It can be used to store a mutable value that does not cause a re-render when updated.
       It can be used to access a DOM element directly.
       useRef() only returns one item. It returns an Object called current.
+
+    Controlled components are the ones where the data will be handled by the state variables.
+    Uncontrolled are the ones where the data will be handled by ref variables.
 
 
 What is Context api
@@ -362,7 +372,7 @@ React.createContext() is all you need. It returns a consumer and a provider. Pro
 
 
 Difference between callback and useCallback Hook ?
-=> useCallback() Hook => The React useCallback Hook returns a memoized callback function.
+=> useCallback() Hook => The React useCallback Hook returns a memoized callback function. It solves the differential equality - every time new function is created and in new memory allocation even if value is not changed
 While callback is a function is passed to another function as an argument.
 
 
@@ -383,6 +393,52 @@ Difference between useEffect and useContext ?
 
 
 
+What is UseMemo Hook ?(Implementation)
+What is UseRef Hook ?(Implementation)
+What is Context api
+Difference between callback and useCallback Hook ?
+What is Props Drilling Concept ?What is State Uplifting ?
+Difference between useEffect and useContext ?
 
+
+DAY 5
+High Order Component in react js ?
+Do you know about SEO ? Is it true that react js supports SEO support
+clean up in useEffect
+What is the use of useCallback and useMemo
+Why do we need keys in react less
+Do you know about redux
+
+
+DAY 6
+What is an event in react?
+What is memory leak and how to overcome?
+Do you prefer function-based or class component and why?
+Explain reducer as pure function in redux
+Why do we use redux thunk?
+What do you know about NPM?
+
+
+react 18 features and summit
+
+what is react, features , Virtual DOM, client side render vs server side render,
+state and props
+Routing, (routes, route)
+Hooks
+Context Api
+Hoc and pure component
+Redux and its principles
+
+
+
+review projects
+
+
+when we want ot use functions in multiple places in app and nee to create function globally then we use redux.
+
+REGEX
+
+on button click calling api
+--> Debouncing and throttling
 
 

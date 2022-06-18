@@ -287,3 +287,8 @@ function concat(...args) {
 	return ans;
 }
 
+
+// program to get the URL
+
+const url1 = window.location.href;
+const url2 = document.URL;
