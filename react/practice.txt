@@ -439,6 +439,10 @@ when we want ot use functions in multiple places in app and nee to create functi
 REGEX
 
 on button click calling api
---> Debouncing and throttling
+--> Debouncing and throttling in JavaScript
+
+Code splitting and optimization
+
+code redundancy - writing unecessary code
 
 
