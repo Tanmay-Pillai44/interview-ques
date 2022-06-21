@@ -292,3 +292,43 @@ function concat(...args) {
 
 const url1 = window.location.href;
 const url2 = document.URL;
+
+
+
+function fibo (number) {
+    let n1 = 0, n2 = 1, nextTerm;
+    let arr = [];
+
+    for (let i = 1; i <= number; i++) {
+        // console.log(n1);
+        arr.push(n1)
+        nextTerm = n1 + n2;
+        n1 = n2;
+        n2 = nextTerm;
+    }
+
+    return arr;
+}
+
+
+// FIbTri
+
+function fiboTri (n) {
+    let n1 = 0, n2 = 1, nextTerm;
+    let ans="";
+
+    for(let i = 2; i <= n; i++) {
+        n1=0;
+        n2=1;
+        ans += n2 + " "
+        for(let j = 1; j < i; j++) {
+            nextTerm = n1 + n2;
+            ans += nextTerm + " "
+            n1 = n2;
+            n2 = nextTerm;
+        }
+        ans += "\n"
+    }
+    console.log(ans)
+}
+
