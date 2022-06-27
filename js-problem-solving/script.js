@@ -339,3 +339,41 @@ let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != ind
 console.log(findDuplicates(strArray)) // All duplicates
 console.log([...new Set(findDuplicates(strArray))]) /
 
+
+// var sortArray = function(nums) {
+//     while (true) {
+//         let swap = false;
+//         for (let i = 0; i < nums.length-1; i++) {
+//             if (nums[i] > nums[i+1]) {
+//                 swap = true;
+//                 let temp = nums[i];
+//                 nums[i] = nums[i+1];
+//                 nums[i+1] = temp;
+//             }
+//         }
+//         if (!swap) return nums;
+//     }
+// };
+
+
+// var twoSum = function(nums, target) {
+
+    //     let secondNumObj = {}
+
+    //     for (let i = 0; i < nums.length; i++) {
+    //         let secondNum = target - nums[i]
+    //         if(secondNum in secondNumObj) {
+    //             return [secondNumObj[secondNum], i]
+    //         }
+    //         secondNumObj[nums[i]] = i;
+    //     }
+// }
+
+
+
+// Algorithm:
+// Traverse the array from start to end.
+// For every element, traverse the array from start to that index and find the maximum height (a) and traverse the array from the current index to end, and find the maximum height (b).
+// The amount of water that will be stored in this column is min(a,b) – array[i], add this value to the total amount of water stored
+// Print the total amount of water stored.
+
