@@ -377,3 +377,23 @@ console.log([...new Set(findDuplicates(strArray))]) /
 // The amount of water that will be stored in this column is min(a,b) – array[i], add this value to the total amount of water stored
 // Print the total amount of water stored.
 
+
+let arr1 = [1, 3, 4, 7, 9, 5]
+
+function maxCompare(arr) {
+    let sum = 0;
+    while (arr.length > 2) {
+        sum = arr[0] + arr[1];
+        if(sum > arr[2]) {
+            arr.splice(0, 2);
+            arr.unshift(sum);
+        } else if (sum <= arr[2]) {
+            arr.splice(0, 2);
+        }
+    }
+    if (arr.length <= 2){
+        return Math.max(...arr);
+    }
+}
+
+console.log(maxCompare(arr1));
