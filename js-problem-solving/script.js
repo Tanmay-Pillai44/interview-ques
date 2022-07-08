@@ -401,3 +401,22 @@ function maxCompare(arr) {
 }
 
 console.log(maxCompare(arr1));
+
+
+
+// COunt Vowels without loop
+
+function isVowel(ch)
+{
+    ch = ch.toUpperCase();
+    return (ch=='A' || ch=='E' || ch=='I' ||
+                        ch=='O' || ch=='U');
+}
+// to count total number of vowel from 0 to n
+function countVovels(str,n)
+{
+    if (n == 1)
+        return isVowel(str[n-1]);
+
+    return countVovels(str, n-1) + isVowel(str[n-1]);
+}
